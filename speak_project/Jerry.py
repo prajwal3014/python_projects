@@ -4,8 +4,7 @@ import speech_recognition as sr
 jerry = p.init('sapi5')
 voices = jerry.getProperty('voices')
 jerry.setProperty('voices', voices[0].id)
-jerry.setProperty("rate", 175)
-
+jerry.setProperty("rate", 173)
 
 def Speak(audio) :
     jerry.say(audio)

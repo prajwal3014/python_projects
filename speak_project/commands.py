@@ -1,38 +1,40 @@
+import json
 import Jerry
-import os
+import json
+import webbrowser as wb
 
+print("\nSay 'wake up jerry' after 'Listening...' to start this virtual assistant\n")
 while True :
-
-    print("\nSay hello Jerry after 'Listening...' to start this virtual assistant\n")
-
     query = Jerry.Listen()
-
-    if query == "hello jerry" :
-        Jerry.Speak("Hello sir, I am a Virtual assistant.")
-        Jerry.Speak("may i know who are you")
-    elif "prajwal" in query :
-        Jerry.Speak("welcome boss, How are you")
-    elif "prajwal's" in query :
-        Jerry.Speak("welcome sir, how are you")
+    
+    if "wake up jerry" in query :
+        Jerry.Speak("yes boss, i am awake, Jerry one point o reporting in your service boss.")
+    elif "good morning" in query :
+        Jerry.Speak("good morning boss, how are you")
+    elif "how are you" in query :
+        Jerry.Speak("i am fine sir, what about you")
     elif "fine" in query or "good" in query or "great" in query :
-        Jerry.Speak("It's good to know that you are fine")
-        Jerry.Speak("How may I help you")
-    elif "small sister" in query or "small sisters" in query :
-        Jerry.Speak("your small sister name is Mahi sharma, she is very cute.")
-    elif "mother" in query :
-        Jerry.Speak("your mother name is kalpana sharma")
-    elif "father" in query :
-        Jerry.Speak("your father name is yadab sharma")
-    elif "made you" in query or "created you" in query :
-        Jerry.Speak("I was created by Mister Prajwal Sharma.")
-    elif "your name" in query :
-        Jerry.Speak("My name is jerry one point o, a virtual assistant.")
-    elif "open google" in query :
-        Jerry.Speak("Opening google just for you boss")
-        os.system("C:\Program Files\Google\Chrome\Application\chrome.exe")
-        break
-    elif "thank you" in query :
-        Jerry.Speak("your welcome sir, i am glad that you are happy with my service")
-    elif "exit" in query :
-        Jerry.Speak("Thank you for your time sir.")
-        break
+        Jerry.Speak("it's good to know that you are fine.")
+    elif "help" in query :
+        Jerry.Speak("Yes boss, how may i help you.")
+    elif "i am sad" in query or "not fine" in query or "not good" in query or "not well" in query :
+        Jerry.Speak("if my boss is sad then i am also sad, let me tell you a joke, i hope it will make you smile.")
+        
+# a={
+#     "wake up jerry" : "yes boss, i am awake, Jerry one point o reporting in your service boss.",
+#     "good morning" : "good morning boss, how are you",
+#     "how are you" : "I am fine sir, what about you",
+#     "fine" : "It's good to know that you are fine. How may I help you",
+#     "good" : "It's good to know that you are fine. How may I help you",
+#     "great" : "It's good to know that you are fine. How may I help you",
+#     "help" : "yes boss, how may i help you.",
+#     "small sister" : "your small sister name is Mahi sharma, she is very cute.",
+#     "small sisters" : "your small sister name is Mahi sharma, she is very cute.",
+#     "mother" : "your mother name is kalpana sharma",
+#     "father" : "your father name is yadab sharma",
+#     "made you" : "I was created by Mister Prajwal Sharma.",
+#     "created you" : "I was created by Mister Prajwal Sharma.",
+#     "your name" : "My name is jerry one point o, a virtual assistant.",
+#     "thank you" : "your welcome sir, i am glad that you are happy with my service",
+#     "exit" : "Thank you for your time sir, going again for sleep. have a good day sir"
+# }
