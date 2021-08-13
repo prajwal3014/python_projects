@@ -1,0 +1,59 @@
+body {
+    background: url("car_back.jpg");
+    background-size: 100%;
+}
+
+.b1 {
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    width: 170px;;
+}
+
+.b1:hover {
+    color: darkslategray;
+    background-color: white;
+}
+
+.b2 {
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    width: 210px;;
+}
+
+.b2:hover {
+    color: darkslategray;
+    background-color: white;
+}
+
+.t1 {
+    font-size: 18px;
+    background-color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 8px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+}

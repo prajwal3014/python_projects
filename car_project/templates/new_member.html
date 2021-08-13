@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>New Member</title>
+    </head>
+    <body>
+
+        <div style="text-align: center; color: white;">
+            <p style="font-size: 40px;">Welcome {{member}}...!</p>
+            <p style="font-size: 30px;">Here is your data =></p>
+        </div>
+        <table border="1px" class="t1">
+            <tr>
+                <th>Username</th>
+                <th>Seat</th>
+                <th>Tyre</th>
+                <th>Body</th>
+                <th>Gear</th>
+                <th>Fuel</th>
+                <th>Body_Material</th>
+                <th>Seat_Material</th>
+                <th>Foot_Mat_Material</th>
+                <th>Speedometer</th>
+                <th>Stereo</th>
+                <th>Sunroof</th>
+                <th>Stereo_ef</th>
+                <th>Advanced_ef</th>
+                <th>Door</th>
+            </tr>
+            <tr>
+                {% for value in data.values() %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr> 
+        </table>
+        <br><br>
+        <div style="text-align: center;">
+            <form action="/Go_home" method="POST">
+                <input type="submit" value="HOME" class="b1">
+            </form>
+        </div>
+
+        <div id="footer" style="text-align: left; color: white;">
+          <p style="font-size: 20px;">Created by : "PRAJWAL SHARMA"</p>
+          <p style="font-size: 20px;">2021</p>
+        </div>
+
+    </body>
+</html>

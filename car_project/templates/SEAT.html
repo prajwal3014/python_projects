@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Car Structure</title>
+    </head>
+    <body>
+
+        <div style="text-align: center;">
+            <p style="color: white; font-size: 50px;">Welcome {{member}}</p>
+            <p style="color: white; font-size: 40px;">Here are some options, select them and customise your car...!</p>
+        </div>
+
+        <form action="/SEAT" method="POST" style="color: white; text-align: center;">
+            
+            <!-- SEAT -->
+                <br><br>
+                <label style="font-size: 30px;">Choose Seat type : </label> <br><br>
+                <label style="font-size: 30px;">A) </label>
+                <input type="submit" value="2 Seater" name="Seat" class="b1"> &nbsp;&nbsp;
+                <label style="font-size: 30px;">B) </label>
+                <input type="submit" value="5 Seater" name="Seat" class="b1"> &nbsp;&nbsp;
+                <label style="font-size: 30px;">C) </label>
+                <input type="submit" value="7 Seater" name="Seat" class="b1"> <br><br>
+        </form>
+        <div id="footer" style="text-align: left; color: white;">
+          <p style="font-size: 20px;">Created by : "PRAJWAL SHARMA"</p>
+          <p style="font-size: 20px;">2021</p>
+        </div>
+
+    </body>
+</html>
