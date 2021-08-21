@@ -6,9 +6,7 @@ while True :
     query = Jerry.Listen()
     
     if "wake up" in query or "jerry" == query :
-        Jerry.Speak("yes boss, i am awake, Jerry one point o reporting in your service boss.")
-    elif "good morning" in query :
-        Jerry.Speak("good morning boss, how are you")
+        Jerry.Speak("yes boss, i am awake, Jerry one point o reporting in your service boss, how are you.")
     elif "how are you" in query :
         Jerry.Speak("i am fine sir, what about you")
     elif "fine" in query or "good" in query or "great" in query :
