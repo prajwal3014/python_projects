@@ -5,7 +5,7 @@ print("\nSay 'wake up jerry' after 'Listening...' to start this virtual assistan
 while True :
     query = Jerry.Listen()
     
-    if "wake up" in query :
+    if "wake up" in query or "jerry" == query :
         Jerry.Speak("yes boss, i am awake, Jerry one point o reporting in your service boss.")
     elif "good morning" in query :
         Jerry.Speak("good morning boss, how are you")
@@ -23,22 +23,7 @@ while True :
         Jerry.Speak("I was created by Mister Prajwal Sharma and Mister Ayush Rana.")
     elif "your name" in query :
         Jerry.Speak("My name is jerry one point o, I am a virtual assistant.")
-
-# a={
-#     "wake up jerry" : "yes boss, i am awake, Jerry one point o reporting in your service boss.",
-#     "good morning" : "good morning boss, how are you",
-#     "how are you" : "I am fine sir, what about you",
-#     "fine" : "It's good to know that you are fine. How may I help you",
-#     "good" : "It's good to know that you are fine. How may I help you",
-#     "great" : "It's good to know that you are fine. How may I help you",
-#     "help" : "yes boss, how may i help you.",
-#     "small sister" : "your small sister name is Mahi sharma, she is very cute.",
-#     "small sisters" : "your small sister name is Mahi sharma, she is very cute.",
-#     "mother" : "your mother name is kalpana sharma",
-#     "father" : "your father name is yadab sharma",
-#     "made you" : "I was created by Mister Prajwal Sharma.",
-#     "created you" : "I was created by Mister Prajwal Sharma.",
-#     "your name" : "My name is jerry one point o, a virtual assistant.",
-#     "thank you" : "your welcome sir, i am glad that you are happy with my service",
-#     "exit" : "Thank you for your time sir, going again for sleep. have a good day sir"
-# }
+    
+    elif "exit" in query :
+        Jerry.Speak("Thanks boss for your time, Closing me, three, two, one, bye boss.")
+        exit()
