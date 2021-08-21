@@ -21,7 +21,10 @@ while True :
         Jerry.Speak("I was created by Mister Prajwal Sharma and Mister Ayush Rana.")
     elif "your name" in query :
         Jerry.Speak("My name is jerry one point o, I am a virtual assistant.")
-    
+    # start elif from here
+    elif "open google" in query :
+        Jerry.Speak("Opening google")
+        wb.open('www.google.com')
     elif "exit" in query :
         Jerry.Speak("Thanks boss for your time, Closing me, three, two, one, bye boss.")
         exit()
