@@ -1,21 +1,23 @@
-import sqlite3 as sq
+import psycopg2
 
-connection = sq.connect('test.db')
-
+connection = psycopg2.connect(database='postgres', user='postgres', password='admin', host='localhost')
+print("Connection is opened...!")
 obj = connection.cursor()
 
-obj.execute(""" create table car (
-                uname varchar(255),
-                pass varchar(255)
-); """)
-
-obj.execute(""" insert into car values ('prajwal', '12prajwal'); """)
-obj.execute(""" insert into car values ('ayush', '12prajwal'); """)
-# obj.execute(""" insert into car values ('harshit', '12prajwal'); """)
-# print("executed...")
-
-obj.execute(""" select * from car """)
-
-result = obj.fetchall()
-
-print(result)
+try :
+    # obj.execute(""" create table app2 (
+    #                 uname varchar(255),
+    #                 upass varchar(255)
+    #             ); """)
+    # obj.execute(""" insert into app2 values ('prajwal', '12prajwal'); """)
+    # obj.execute(""" insert into app2 values ('ayush', '12ayush'); """)
+    obj.execute(""" select * from app """)
+    results = obj.fetchall()
+    connection.commit()
+    print(results)
+    print("Query successfully executed...!")
+except :
+    print("There some problem in executing query...!")
+finally :
+    connection.close()
+    print("Connection is closed...!")

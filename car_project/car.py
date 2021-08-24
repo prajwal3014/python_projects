@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 # , redirect, url_for, flash, abort, session, jsonify
 from MainDBConnect import DataAccessor
-import pandas as pd
 import json
 # from werkzeug.utils import secure_filename
 
