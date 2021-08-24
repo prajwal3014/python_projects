@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Register</title>
+    </head>
+    <body>
+        <h1>Register FORM</h1>
+        <form action="/register" method="POST" style="text-align: center;">
+            <label style="color: BlueViolet; font-size: 30px;">Create Username : </label><br>
+            <input type="text" name="uname" style="font-size: 30px;" required><br>
+            <label style="color: BlueViolet; font-size: 30px;">Create Password : </label><br>
+            <input type="password" name="upass" style="font-size: 30px;" required><br>
+            <input type="submit" value="Submit" class="b1">
+        </form>
+        <div style="text-align: center; font-size: 25px; color: blueviolet;">
+            <p>{{msg}}</p>
+        </div>
+        <form action="/tologin" style="text-align: center;">
+            <label style="color: BlueViolet; font-size: 20px;">Already a user? Login here :</label>
+            <input type="submit" value="Login" class="b1">
+        </form>
+    </body>
+</html>
