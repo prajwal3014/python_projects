@@ -8,6 +8,12 @@ h1 {
     font-size: 50px;
 }
 
+h2 {
+    color: BlueViolet;
+    text-align: center;
+    font-size: 30px;
+}
+
 .b1 {
     background-color: darkslategray;
     color: white;
@@ -27,29 +33,29 @@ h1 {
     background-color: white;
 }
 
-ul {
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-}
-  
-li {
-    float: left;
-    display: block;
+} */
+
+.log {
+    background-color: darkslategray;
     color: white;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 28px;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
     cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    width: 170px;;
 }
-  
-li:hover:not(.active) {
-    background-color: #111;
-}
-  
-.active {
-    background-color: #04AA6D;
+
+.log:hover {
+    color: darkslategray;
+    background-color: white;
 }

@@ -7,14 +7,22 @@ app = Flask(__name__)
 connection = psycopg2.connect(database='postgres', user='postgres', password='admin', host='localhost')
 obj = connection.cursor()
 
+# Home
 @app.route("/")
 def home() :
     return render_template("register.html")
 
+#Redirect to login page
 @app.route("/tologin")
 def to_login() :
     return render_template("login.html")
 
+#Logout
+@app.route("/logout")
+def logout() :
+    return render_template("login.html", msg = "Logout Successfully")
+
+#Register page working
 @app.route("/register", methods = ['POST', 'GET'])
 def register() :
     u_name = request.form['uname']
@@ -40,6 +48,7 @@ def register() :
     elif user_name in user_list :
         return render_template("register.html", msg = "Username Already taken...!")
 
+#Login page working
 @app.route("/login", methods = ['POST', 'GET'])
 def login() :
     u_name = request.form['uname']
@@ -60,3 +69,17 @@ def login() :
         return render_template("login.html", msg = "Incorrect username or password, please check again...!")
     elif count_name == count_pass :
         return render_template("user.html", msg = user_name, list = user_list)
+
+#Navigate to Create room page
+@app.route("/create")
+def create() :
+    return render_template("create_room.html")
+
+#Create room page working
+@app.route("/create_room", methods = ['POST', 'GET'])
+def create_room() :
+    room_name = request.form['create']
+    room_file = "room.json"
+    with open(room_file, 'r') as f :
+        room_list = json.load(room_file)
+    
