@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Join Room</title>
+    </head>
+    <body>
+        <form action="/logout" method="POST" style="text-align: right;">
+            <input type="submit" value="Logout" class="b1">
+        </form>
+        <br><br><br><br>
+        <form action="/join_room" method="POST" style="text-align: center;">
+            <label style="color: BlueViolet; font-size: 40px;">Enter room name : </label><br>
+            <input type="text" name="join" style="font-size: 30px;" required><br>
+            <input type="submit" value="Join Room" class="b1"><br><br>
+            <label style="color: BlueViolet; font-size: 40px;">OR</label><br>
+        </form>
+        <form action="/explore_room" method="POST" style="text-align: center;">
+            <input type="submit" value="Explore" class="b1">
+        </form>
+    </body>
+</html>
