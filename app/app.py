@@ -87,10 +87,12 @@ def login() :
     elif count_name == count_pass :
         return render_template("user.html")
 
+r_lst = []
 #Create room page working
 @app.route("/create_room", methods = ['POST', 'GET'])
 def create_room() :
     room_name = request.form['create']
+    r_lst.append(room_name)
     room_file = "room.json"
     user_name = lst.pop()
     lst.append(user_name)
@@ -102,19 +104,42 @@ def create_room() :
         room_list.append(room_name)
         with open(room_file, 'w') as c :
             json.dump(room_list, c, indent=4)
-        return render_template("chat.html", user = user_name, room = room_name, lst = room_list)
+        return render_template("chat.html", user = user_name, room = room_name)
 
 #Join room working
 @app.route("/join_room", methods = ['POST', 'GET'])
 def join_room() :
     room_name = request.form['join']
+    r_lst.append(room_name)
     user_name = lst.pop()
     lst.append(user_name)
     room_file = "room.json"
     with open(room_file, 'r') as f :
         room_list = json.load(f)
     if room_name in room_list :
-        return render_template("chat.html", user = user_name, room = room_name, lst = room_list)
+        return render_template("chat.html", user = user_name, room = room_name)
+    elif room_name not in room_list :
+        return render_template("join_room.html", msg = "Room does not exists...!")
+
+#Send message working
+@app.route("/send_message", methods = ['POST', 'GET'])
+def send_message() :
+    message = request.form['message']
+    user_name = lst.pop()
+    lst.append(user_name)
+    room_name = r_lst.pop()
+    r_lst.append(room_name)
+    obj.execute(""" create table {0} (
+                    uname varchar(255),
+                    message varchar(255)
+                ); """.format(user_name))
+    obj.execute(""" insert into {0} values ('{0}', '{1}') """.format(user_name, message))
+    obj.execute(""" select message from {0} where uname='{0}' """.format(user_name))
+    connection.commit()
+    result = obj.fetchall()
+    obj.execute(""" drop table {0} """.format(user_name))
+    connection.commit()
+    return render_template("chat.html", user = user_name, room = room_name, msg = result)
 
 if __name__ == '__main__' :
     app.run() 

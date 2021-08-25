@@ -7,11 +7,10 @@
         <h1>Welcome {{user}}</h1>
         <h2>Room : {{room}}</h2>
         <div style="background-color: darkorange;">
-            {% for i in lst %}
-                <p style="color: white; font-size: 25px;">{{i}}</p>
-            {% endfor %}
+                <p style="color: white; font-size: 25px;">{{user}} apeared...!</p>
+                <p style="color: white; font-size: 25px;">{{user}} : {{msg}}</p>
         </div>
-        <form style="text-align: center;">
+        <form action="/send_message" method="POST" style="text-align: center;">
             <input style="font-size: 28px;" type="text" name="message" placeholder="Enter your message here...!" required>
             <input type="submit" value="Send" class="send">
         </form>
@@ -19,4 +18,8 @@
             <input type="submit" value="Leave Chat" class="b1">
         </form>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script>
+        
+    </script>
 </html>
