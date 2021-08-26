@@ -46,7 +46,7 @@ def leave() :
 #Register page working
 @app.route("/register", methods = ['POST', 'GET'])
 def register() :
-    u_name = request.form['uname']
+    u_name = request.form['username']
     user_name = u_name.lower()
     user_pass = request.form['upass']
     u_file = 'uname.json'
@@ -71,7 +71,7 @@ def register() :
 #Login page working
 @app.route("/login", methods = ['POST', 'GET'])
 def login() :
-    u_name = request.form['uname']
+    u_name = request.form['username']
     user_name = u_name.lower()
     user_pass = request.form['upass']
     lst.append(user_name)
@@ -91,12 +91,10 @@ def login() :
     elif count_name == count_pass :
         return render_template("user.html")
 
-r_lst = []
 #Create room page working
 @app.route("/create_room", methods = ['POST', 'GET'])
 def create_room() :
-    room_name = request.form['create']
-    r_lst.append(room_name)
+    room_name = request.form['room']
     room_file = "room.json"
     user_name = lst.pop()
     lst.append(user_name)
@@ -113,8 +111,7 @@ def create_room() :
 #Join room working
 @app.route("/join_room", methods = ['POST', 'GET'])
 def join_room() :
-    room_name = request.form['join']
-    r_lst.append(room_name)
+    room_name = request.form['room']
     user_name = lst.pop()
     lst.append(user_name)
     room_file = "room.json"
@@ -125,25 +122,10 @@ def join_room() :
     elif room_name not in room_list :
         return render_template("join_room.html", msg = "Room does not exists...!")
 
-#Send message working
-@app.route("/send_message", methods = ['POST', 'GET'])
-def send_message() :
-    message = request.form['message']
-    user_name = lst.pop()
-    lst.append(user_name)
-    room_name = r_lst.pop()
-    r_lst.append(room_name)
-    obj.execute(""" create table {0} (
-                    uname varchar(255),
-                    message varchar(255)
-                ); """.format(user_name))
-    obj.execute(""" insert into {0} values ('{0}', '{1}') """.format(user_name, message))
-    obj.execute(""" select message from {0} where uname='{0}' """.format(user_name))
-    connection.commit()
-    result = obj.fetchall()
-    obj.execute(""" drop table {0} """.format(user_name))
-    connection.commit()
-    return render_template("chat.html", user = user_name, room = room_name, msg = result)
+@socketio.on('join_room')
+def join_room_event(data) :
+	join_room(data['room'])
+	socketio.emit('join_announce', data)
 
 if __name__ == '__main__' :
     socketio.run(app, debug=True)
