@@ -6,7 +6,7 @@ import json
 from werkzeug import debug
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+socketio = SocketIO(app,cors_allowed_origins="*")
 
 connection = psycopg2.connect(database='postgres', user='postgres', password='admin', host='localhost')
 obj = connection.cursor()

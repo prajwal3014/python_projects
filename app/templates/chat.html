@@ -6,7 +6,7 @@
     <body>
         <h1>Welcome {{user}}</h1>
         <h2>Room : {{room}}</h2>
-        <div style="background-color: darkorange;" id="messages">
+        <div style="background-color: darkorange; color: white;" id="messages">
                 
         </div>
         <form action="/send_message" method="POST" style="text-align: center;" id="message_input_form">
@@ -17,9 +17,10 @@
             <input type="submit" value="Leave Chat" class="b1">
         </form>
     </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
     <script>
-        const socket = io.connect("http://127.0.0.1:5000");
+        const socket = io.connect("localhost:5000");
         socket.on('connect', function() {
             socket.emit('join_room', {
                 username: "{{ username }}",
@@ -27,6 +28,7 @@
             });	
         });
         socket.on('join_announce', function(data) {
+            console.log(data);
             const newNode = document.createElement('div');
             newNode.innerHTML = `${data.username} has joined the room`;
             document.getElementById('messages').appendChild(newNode);
