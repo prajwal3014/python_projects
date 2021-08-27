@@ -71,9 +71,8 @@ def register() :
 #Login page working
 @app.route("/login", methods = ['POST', 'GET'])
 def login() :
-    u_name = request.form['username']
-    user_name = u_name.lower()
-    user_pass = request.form['upass']
+    user_name = request.form['username']
+    user_pass = request.form['password']
     lst.append(user_name)
     d_file = 'details.json'
     with open(d_file, 'r') as n :
@@ -118,14 +117,15 @@ def join_room() :
     with open(room_file, 'r') as f :
         room_list = json.load(f)
     if room_name in room_list :
-        return render_template("chat.html", user = user_name, room = room_name)
+        return render_template("chat.html", username = user_name, room = room_name)
     elif room_name not in room_list :
         return render_template("join_room.html", msg = "Room does not exists...!")
 
 @socketio.on('join_room')
-def join_room_event(data) :
-	join_room(data['room'])
-	socketio.emit('join_announce', data)
+def handle_join_room_event(data):
+    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
+    join_room(data['room'])
+    socketio.emit('join_announce', data, room=data['room'])
 
 if __name__ == '__main__' :
     socketio.run(app, debug=True)
