@@ -1,0 +1,57 @@
+body {
+    background-color: AliceBlue;
+}
+
+h1 {
+    color: BlueViolet;
+    text-align: center;
+    font-size: 50px;
+}
+
+h2 {
+    color: BlueViolet;
+    text-align: center;
+    font-size: 30px;
+}
+
+.b1 {
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    width: 170px;
+}
+
+.b1:hover {
+    color: darkslategray;
+    background-color: white;
+}
+
+.send {
+    background-color: green;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 28px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* padding: 10px 20px; */
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    
+}
+
+.send:hover {
+    color: darkslategray;
+    background-color: white;
+}
+
+/* .chat_area {
+    font-size: 50px;
+} */
