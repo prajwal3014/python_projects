@@ -2,16 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>My Chat App</title>
+        <title>{{room}} room chats</title>
+        <link rel="stylesheet" href="../static/styles.css">
     </head>
     <body>
+        <form action="/leave" style="text-align: right;">
+            <input type="submit" value="Leave Chat" class="b1">
+        </form>
         <h1>Welcome to chat room {{ room }}</h1>
 
-        <div id="messages"></div>
+        <div id="messages" class="msg"></div>
 
-        <form id="message_input_form">
-            <input type="text" id="message_input" placeholder="Enter your message here">
-            <button type="submit">Send</button>
+        <form id="message_input_form" style="text-align: center;">
+            <input type="text" id="message_input" placeholder="Enter your message here" style="font-size: 28px;" required>
+            <input type="submit" value="Send" class="send">
         </form>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>

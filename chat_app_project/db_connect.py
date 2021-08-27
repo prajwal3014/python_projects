@@ -20,4 +20,3 @@ def get_user(username) :
     print("Query executed")
     x = User(user_data[0], user_data[1], user_data[2]) if user_data else None
     return x
-

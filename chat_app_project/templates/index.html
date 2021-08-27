@@ -2,20 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>My Chat App</title>
+        <title>Create/Join chat room</title>
+        <link rel="stylesheet" href="../static/styles.css">
     </head>
     <body>
-        <h1>My Chat App</h1>
-        <form action="/chat">
+        <form action="/logout" style="text-align: right;">
+            <input type="submit" value="Logout" class="b1">
+        </form>
+        <h1>Welcome to Uniquedu chat app</h1>
+        <br><br>
+        <form action="/chat" style="text-align: center;">
             <div>
-                <label>Enter your username:</label>
-                <input type="text" name="username">
+                <label style="color: BlueViolet; font-size: 30px;">Enter username :</label><br>
+                <input type="text" name="username" style="font-size: 30px;" required>
             </div>
             <div>
-                <label>Enter room id:</label>
-                <input type="text" name="room">
+                <label style="color: BlueViolet; font-size: 30px;">Enter room :</label><br>
+                <input type="text" name="room" style="font-size: 30px;" required>
             </div>
-            <button type="submit">Submit</button>
+            <div style="text-align: center; font-size: 25px; color: blueviolet;">
+                <p>{{msg}}</p>
+            </div>
+            <input type="submit" value="Enter" class="b1">
         </form>
     </body>
 </html>

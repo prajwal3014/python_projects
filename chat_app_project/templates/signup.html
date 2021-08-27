@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Sign up</title>
+    </head>
+    <body>
+        <h1>Sign up Form</h1>
+        <form action="/signup" method="POST" style="text-align: center;">
+            <label style="color: BlueViolet; font-size: 30px;">Enter your email : </label><br>
+            <input type="text" name="email" style="font-size: 30px;" required><br>
+            <label style="color: BlueViolet; font-size: 30px;">Create Username : </label><br>
+            <input type="text" name="username" style="font-size: 30px;" required><br>
+            <label style="color: BlueViolet; font-size: 30px;">Create Password : </label><br>
+            <input type="password" name="password" style="font-size: 30px;" required><br>
+            <input type="submit" value="Submit" class="b1">
+        </form>
+        <div style="text-align: center; font-size: 25px; color: blueviolet;">
+            <p>{{msg}}</p>
+        </div>
+        <form action="/tologin" style="text-align: center;">
+            <label style="color: BlueViolet; font-size: 20px;">Already a user? Login here :</label>
+            <input type="submit" value="Login" class="b1">
+        </form>
+    </body>
+</html>
