@@ -26,12 +26,18 @@ def login() :
     if request.method == 'POST' :
         username = request.form.get('username')
         password_input = request.form.get('password')
-        user = db.get_user(username)
-        if user and user.check_password(password_input) :
-            login_user(user)
-            return render_template('index.html')
-        else :
+        file = 'username.json'
+        with open(file, 'r') as r :
+            username_list = json.load(r)
+        if username not in username_list :
             message = "Invalid username or password, please try again...!"
+        elif username in username_list :
+            user = db.get_user(username)
+            if user and user.check_password(password_input) :
+                login_user(user)
+                return render_template('index.html')
+            else :
+                message = "Invalid username or password, please try again...!"
     return render_template('login.html', msg = message)
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -66,7 +72,8 @@ def chat():
     room = request.args.get('room')
 
     if username and room:
-        return render_template('chat.html', username=username, room=room)
+        msg_data = db.get_message(room)
+        return render_template('chat.html', username=username, room=room, messages = msg_data)
     else:
         return redirect(url_for('to_login'))
 
@@ -76,11 +83,9 @@ def leave() :
 
 @socketio.on('send_message')
 def handle_send_message_event(data):
-    app.logger.info("{} has sent message to the room {}: {}".format(data['username'],
-                                                                    data['room'],
-                                                                    data['message']))
+    app.logger.info("{} has sent message to the room {}: {}".format(data['username'],data['room'],data['message']))
+    db.save_message(data['room'], data['message'], data['username'])
     socketio.emit('receive_message', data, room=data['room'])
-
 
 @socketio.on('join_room')
 def handle_join_room_event(data):
