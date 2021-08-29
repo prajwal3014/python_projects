@@ -53,8 +53,13 @@ h2 {
 }
 
 .msg {
-    text-align: center;
-    background-color: darkorange; 
+    background-image: url("chat_bg.png");
     color: white;
+    width: 1000px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     font-size: 28px;
 }
