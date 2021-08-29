@@ -1,13 +1,8 @@
 from flask import Flask, render_template, request
-import psycopg2
+import db
 import json
 
 app = Flask(__name__)
-
-connection = psycopg2.connect(database='postgres', user='postgres', password='admin', host='localhost')
-obj = connection.cursor()
-
-lst = []
 
 # Home
 @app.route("/")
@@ -24,122 +19,46 @@ def to_login() :
 def logout() :
     return render_template("login.html", msg = "Logout Successfully...!")
 
-#Navigate to Create room page
-@app.route("/create", methods = ['POST', 'GET'])
-def create() :
-    return render_template("create_room.html")
-
-#Navigate to Join room page
-@app.route("/join", methods = ['POST', 'GET'])
-def join() :
-    return render_template("join_room.html")
-
-#Leave Chat
-@app.route("/leave", methods = ['POST', 'GET'])
-def leave() :
-    return render_template("user.html", msg = "Exited from the recent chat room...!")
-
 #Register page working
 @app.route("/register", methods = ['POST', 'GET'])
 def register() :
-    u_name = request.form['uname']
-    user_name = u_name.lower()
-    user_pass = request.form['upass']
-    u_file = 'uname.json'
-    d_file = 'details.json'
-    with open(u_file, 'r') as user_file :
-        user_list = json.load(user_file)
-    with open(d_file, 'r') as n :
-        user_dict = json.load(n)
-    if user_name not in user_list :
-        user_list.append(user_name)
-        user_dict[user_name] = user_pass
-        with open(u_file, 'w') as u :
-            json.dump(user_list, u, indent=4)
-        with open(d_file, 'w') as n1 :
-            json.dump(user_dict, n1, indent=4)
-        obj.execute(""" insert into app values ('{0}', '{1}') """.format(user_name, user_pass))
-        connection.commit()
-        return render_template("login.html")
-    elif user_name in user_list :
+    name = request.form['name']
+    email = request.form['email']
+    number = request.form['number']
+    username = request.form['username']
+    password = request.form['password']
+
+    file = 'uname.json'
+    with open(file, 'r') as r :
+        user_list = json.load(r)
+    
+    if username not in user_list :
+        user_list.append(username)
+        with open(file, 'w') as w :
+            json.dump(user_list, w, indent=4)
+        db.save_user(name, email, number, username, password)
+        return render_template("login.html", msg = "Account created successfully...!")
+    elif username in user_list :
         return render_template("register.html", msg = "Username Already taken...!")
 
 #Login page working
 @app.route("/login", methods = ['POST', 'GET'])
 def login() :
-    u_name = request.form['uname']
-    user_name = u_name.lower()
-    user_pass = request.form['upass']
-    lst.append(user_name)
-    d_file = 'details.json'
-    with open(d_file, 'r') as n :
-        user_dict = json.load(n)
-    user_list = list(user_dict.keys())
-    pass_list = list(user_dict.values())
-    count_name = -1
-    count_pass = -2
-    if user_pass in pass_list :
-        count_pass = pass_list.index(user_pass)
-    if user_name in user_list :
-        count_name = user_list.index(user_name)
-    if count_name != count_pass :
-        return render_template("login.html", msg = "Incorrect username or password, please check again...!")
-    elif count_name == count_pass :
-        return render_template("user.html")
-
-r_lst = []
-#Create room page working
-@app.route("/create_room", methods = ['POST', 'GET'])
-def create_room() :
-    room_name = request.form['create']
-    r_lst.append(room_name)
-    room_file = "room.json"
-    user_name = lst.pop()
-    lst.append(user_name)
-    with open(room_file, 'r') as f :
-        room_list = json.load(f)
-    if room_name in room_list :
-        return render_template("create_room.html", msg = "Room already exists...!")
-    elif room_name not in room_list :
-        room_list.append(room_name)
-        with open(room_file, 'w') as c :
-            json.dump(room_list, c, indent=4)
-        return render_template("chat.html", user = user_name, room = room_name)
-
-#Join room working
-@app.route("/join_room", methods = ['POST', 'GET'])
-def join_room() :
-    room_name = request.form['join']
-    r_lst.append(room_name)
-    user_name = lst.pop()
-    lst.append(user_name)
-    room_file = "room.json"
-    with open(room_file, 'r') as f :
-        room_list = json.load(f)
-    if room_name in room_list :
-        return render_template("chat.html", user = user_name, room = room_name)
-    elif room_name not in room_list :
-        return render_template("join_room.html", msg = "Room does not exists...!")
-
-#Send message working
-@app.route("/send_message", methods = ['POST', 'GET'])
-def send_message() :
-    message = request.form['message']
-    user_name = lst.pop()
-    lst.append(user_name)
-    room_name = r_lst.pop()
-    r_lst.append(room_name)
-    obj.execute(""" create table {0} (
-                    uname varchar(255),
-                    message varchar(255)
-                ); """.format(user_name))
-    obj.execute(""" insert into {0} values ('{0}', '{1}') """.format(user_name, message))
-    obj.execute(""" select message from {0} where uname='{0}' """.format(user_name))
-    connection.commit()
-    result = obj.fetchall()
-    obj.execute(""" drop table {0} """.format(user_name))
-    connection.commit()
-    return render_template("chat.html", user = user_name, room = room_name, msg = result)
+    username = request.form['username']
+    password = request.form['password']
+    
+    file = 'uname.json'
+    with open(file, 'r') as r :
+        user_list = json.load(r)
+    
+    if username not in user_list :
+        return render_template("login.html", msg = "Username does not exists...!")
+    elif username in user_list :
+        authentication = db.check_password(username, password)
+        if authentication == "True" :
+            return render_template("user.html")
+        elif authentication == "False" :
+            return render_template("login.html", msg = "Invalid Username or Password, Please try again...!")
 
 if __name__ == '__main__' :
-    app.run() 
+    app.run(debug=True) 
