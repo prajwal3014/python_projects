@@ -1,15 +1,15 @@
 body {
-    background-color: AliceBlue;
+    background-color: #F0F8FF !important;
 }
 
 h1 {
-    color: BlueViolet;
+    color: #8A2BE2 !important;
     text-align: center;
     font-size: 50px;
 }
 
 h2 {
-    color: BlueViolet;
+    color: BlueViolet !important;
     text-align: center;
     font-size: 30px;
 }
@@ -43,8 +43,7 @@ h2 {
     cursor: pointer;
     /* padding: 10px 20px; */
     border-radius: 15px;
-    transition-duration: 0.4s;
-    
+    transition-duration: 0.4s; 
 }
 
 .send:hover {
@@ -52,14 +51,26 @@ h2 {
     background-color: white;
 }
 
-.msg {
+.msg_visible {
     background-image: url("chat_bg.png");
     color: white;
     width: 1000px;
+    height: 400px;
     padding: 10px;
     border: 5px solid gray;
     margin: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-size: 28px;
+    overflow: auto;
+    font-size: 25px;
+}
+
+.msg_hidden {
+    background-image: url("chat_bg.png");
+    color: white;
+    width: 900px;
+    height: 1500px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: auto;
+    overflow: auto;
+    font-size: 25px;
 }
