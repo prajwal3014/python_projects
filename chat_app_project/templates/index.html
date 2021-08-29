@@ -4,26 +4,55 @@
         <meta charset="UTF-8">
         <title>Create/Join chat room</title>
         <link rel="stylesheet" href="../static/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form action="/logout" style="text-align: right;">
-            <input type="submit" value="Logout" class="b1">
-        </form>
-        <h1>Welcome to Uniquedu chat app</h1>
+        <div class="visible-lg">
+            <form action="/logout" style="text-align: right;">
+                <input type="submit" value="Logout" class="b1">
+            </form>
+        </div>
+        <div class="visible-lg" style="font-size: 50px; text-align: center; color: blueviolet;">Welcome to Uniquedu chat app</div>
+        <div class="hidden-lg" style="font-size: 60px; text-align: center; color: blueviolet">
+            <br><br><br><br><br>
+            Welcome to Uniquedu chat app
+        </div>
         <br><br>
-        <form action="/chat" style="text-align: center;">
-            <div>
+        <div class="visible-lg" style="text-align: center;">
+            <form action="/chat">
                 <label style="color: BlueViolet; font-size: 30px;">Enter username :</label><br>
-                <input type="text" name="username" style="font-size: 30px;" required>
-            </div>
-            <div>
+                <input type="text" name="username" style="font-size: 30px;" required><br>
+
                 <label style="color: BlueViolet; font-size: 30px;">Enter room :</label><br>
                 <input type="text" name="room" style="font-size: 30px;" required>
-            </div>
-            <div style="text-align: center; font-size: 25px; color: blueviolet;">
-                <p>{{msg}}</p>
-            </div>
-            <input type="submit" value="Enter" class="b1">
-        </form>
+        
+                <div style="text-align: center; font-size: 25px; color: blueviolet;">
+                    <p>{{msg}}</p>
+                </div>
+                <input type="submit" value="Enter" class="b1">
+            </form>
+        </div>
+        <div class="hidden-lg" style="text-align: center;">
+            <form action="/chat">
+                <label style="color: BlueViolet; font-size: 60px;">Enter username :</label><br>
+                <input size="25" type="text" name="username" style="font-size: 40px;" required><br>
+
+                <label style="color: BlueViolet; font-size: 60px;">Enter room :</label><br>
+                <input size="25" type="text" name="room" style="font-size: 40px;" required>
+        
+                <div style="text-align: center; font-size: 30px; color: blueviolet;">
+                    <p>{{msg}}</p>
+                </div>
+                <input type="submit" value="Enter" class="b1">
+            </form>
+        </div>
+        <br>
+        <div class="hidden-lg">
+            <form action="/logout" style="text-align: center;">
+                <input type="submit" value="Logout" class="b1">
+            </form>
+        </div>
     </body>
 </html>
