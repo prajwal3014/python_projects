@@ -15,12 +15,14 @@
         <h1>Welcome to chat room {{ room }}</h1>
         
         <div id="messages" class="msg_visible visible-lg">
+            {{no_msg}}
             {% for message in messages %}
                 <b>{{message[0]}}</b> : {{message[1]}}<br>
             {% endfor %}
         </div>
 
         <div id="message" class="msg_hidden hidden-lg">
+            {{no_msg}}
             {% for message in messages %}
                 <b>{{message[0]}}</b> : {{message[1]}}<br>
             {% endfor %}
@@ -30,10 +32,10 @@
             <input type="text" id="message_input" placeholder="Enter your message here" style="font-size: 28px;" size="60" required>
             <input type="submit" value="Send" class="send">
         </form>
-        <!-- <form id="message_input_form" style="text-align: center;" class="hidden-lg">
-            <input type="text" id="message_input" placeholder="Enter your message here" style="font-size: 28px;" size="40" required>
+        <form id="message_input_forms" style="text-align: center;" class="hidden-lg">
+            <input type="text" id="message_inputs" placeholder="Enter your message here" style="font-size: 28px;" size="40" required>
             <input type="submit" value="Send" class="send">
-        </form> -->
+        </form>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
@@ -60,6 +62,22 @@
                 }
                 message_input.value = '';
                 message_input.focus();
+            }
+
+            let message_inputs = document.getElementById('message_inputs');
+
+            document.getElementById('message_input_forms').onsubmit = function (e) {
+                e.preventDefault();
+                let messages = message_inputs.value.trim();
+                if (messages.length) {
+                    socket.emit('send_message', {
+                        username: "{{ username }}",
+                        room: "{{ room }}",
+                        messages: messages
+                    })
+                }
+                message_inputs.value = '';
+                message_inputs.focus();
             }
         });
 

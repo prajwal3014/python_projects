@@ -73,7 +73,10 @@ def chat():
 
     if username and room:
         msg_data = db.get_message(room)
-        return render_template('chat.html', username=username, room=room, messages = msg_data)
+        if msg_data :
+            return render_template('chat.html', username=username, room=room, messages = msg_data)
+        else :
+            return render_template('chat.html', username=username, room=room, no_msg = "Be the first to start chat...")
     else:
         return redirect(url_for('to_login'))
 
