@@ -56,7 +56,8 @@ def login() :
     elif username in user_list :
         authentication = db.check_password(username, password)
         if authentication == "True" :
-            return render_template("user.html")
+            user_data = db.get_user(username)
+            return render_template("user.html", user_data = user_data, username = username)
         elif authentication == "False" :
             return render_template("login.html", msg = "Invalid Username or Password, Please try again...!")
 

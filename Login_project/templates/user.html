@@ -8,13 +8,21 @@
             <input type="submit" value="Logout" class="b1">
         </form>
         <br><br>
-        <h1>Welcome to Uniquedu chats</h1>
-        <form action="/create" method="POST" style="text-align: center;">
-            <input type="submit" value="Create Room" class="b1">
-        </form>
-        <form action="/join" method="POST" style="text-align: center;">
-            <input type="submit" value="Join Room" class="b1">
-        </form>
+        <h1>Welcome {{username}}</h1>
+        <h2>Your data is as follows :</h2>
+        <table border="1px" class="t1">
+            <tr>
+                <th>Name</th>
+                <th>Email-Id</th>
+                <th>Number</th>
+                <th>Username</th>
+            </tr>
+            <tr>
+                {% for data in user_data %}
+                    <td>{{ data }}</td>
+                {% endfor %}
+            </tr> 
+        </table>
         <div style="text-align: center; font-size: 25px; color: blueviolet;">
             <p>{{msg}}</p>
         </div>
