@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from werkzeug.utils import redirect
 import db
 import json
 
@@ -18,6 +19,11 @@ def to_login() :
 @app.route("/logout", methods = ['POST', 'GET'])
 def logout() :
     return render_template("login.html", msg = "Logout Successfully...!")
+
+#To Change password page
+@app.route('/tochange')
+def to_change_password() :
+    return render_template("change_pass.html")
 
 #Register page working
 @app.route("/register", methods = ['POST', 'GET'])
