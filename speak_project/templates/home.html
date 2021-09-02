@@ -4,6 +4,21 @@
         <link rel="stylesheet" href="../static/styles.css">
     </head>
     <body>
-        <h1>Welcome</h1>
+        <p class="h1">Welcome Boss</p>
+        <p id="commands" class="h2">Click on my arc reactor to continue...</p>
+        <br>
+        <div style="text-align: center;">
+            <button class="submit" type="submit" id="submit"></button>
+        </div>
+        <script>
+            // const jerry = io.connect("http://localhost:5000"); 
+            submit.addEventListener('click', ()=>{
+                console.log("Done")
+                document.getElementById("commands").innerHTML = "Listening..."
+                // $.post('/toMain', {
+                //     data = "Program is going well"
+                // });
+            });
+        </script>
     </body>
 </html>
