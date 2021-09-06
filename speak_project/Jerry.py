@@ -26,3 +26,6 @@ def Listen() :
             return "none"
             
         return query.lower()
+
+# query = Listen()
+# Speak("hello sir")

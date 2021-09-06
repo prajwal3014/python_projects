@@ -7,18 +7,36 @@
         <p class="h1">Welcome Boss</p>
         <p id="commands" class="h2">Click on my arc reactor to continue...</p>
         <br>
-        <div style="text-align: center;">
-            <button class="submit" type="submit" id="submit"></button>
-        </div>
+        <form id="some">
+            <div style="text-align: center;">
+                <button class="submit" type="submit" id="submit"></button>
+            </div>
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
         <script>
-            // const jerry = io.connect("http://localhost:5000"); 
-            submit.addEventListener('click', ()=>{
-                console.log("Done")
-                document.getElementById("commands").innerHTML = "Listening..."
-                // $.post('/toMain', {
-                //     data = "Program is going well"
-                // });
-            });
+            const socket = io.connect("http://localhost:5000"); 
+            
+            // submit.addEventListener('click', ()=>{
+            //     socket.on('connect', ()=>{
+            //         socket.emit('to_main', {
+            //             command : "Functions properly"
+            //         });
+            //     });
+            // });
+            socket.on('connect', function() {
+                document.getElementById('some').onsubmit = function() {
+                    console.log("In 1")
+                    socket.emit('to_main', {
+                        command : "Functions properly"
+                    })
+                }
+            })
+            socket.on('something', function(msg) {
+                console.log(msg)
+                console.log("In 2")
+                document.getElementById('commands').innerHTML = `Successfull speak`
+            })
         </script>
     </body>
 </html>
