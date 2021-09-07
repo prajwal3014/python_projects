@@ -16,7 +16,7 @@ class jerry_commands(QThread) :
         super(jerry_commands, self).__init__()
     
     def run(self) :
-        self.TaskExecution()
+        self.take_commands()
     
     def take_commands(self) :
         Speak("Welcome boss")
