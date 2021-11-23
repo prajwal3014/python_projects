@@ -10,6 +10,11 @@ from pyttsx3 import speak
 from jerry_UI import Ui_Jerry
 from Jerry import Listen, Speak
 import webbrowser as wb
+import wikipedia
+import datetime
+import os
+from ecapture import ecapture as ec
+import cv2
 
 class jerry_commands(QThread) :
     def __init__(self) :
@@ -38,10 +43,55 @@ class jerry_commands(QThread) :
                 Speak("I was created by Mister Prajwal Sharma and Mister Ayush Rana.")
             elif "your name" in self.query :
                 Speak("My name is jerry one point o, I am a virtual assistant.")
-            # start elif from here
             elif "open google" in self.query :
                 Speak("Opening google")
                 wb.open('www.google.com')
+            elif "open youtube" in self.query :
+                Speak("Opening youtube")
+                wb.open('www.youtube.com')
+            elif 'wikipedia' in self.query:
+                Speak('Searching Wikipedia...')
+                self.query = self.query.replace("wikipedia", "")
+                results = wikipedia.summary(self.query, sentences = 3)
+                Speak("According to Wikipedia")
+                print(results)
+                Speak(results)
+            elif 'open stack overflow' in self.query:
+                Speak("Opening stackoverflow")
+                wb.open("www.stackoverflow.com")
+            elif 'the time' in self.query:
+                strTime = datetime.datetime.now().strftime("% H:% M:% S")   
+                Speak(f"Sir, the time is {strTime}")
+            elif 'play music' in self.query or "play song" in self.query:
+                Speak("Playing music")
+                music_dir = "C:\\Users\\ayush\\Music"
+                songs = os.listdir(music_dir)
+                print(songs)   
+                random = os.startfile(os.path.join(music_dir, songs[1]))
+            elif 'open downloads' in self.query:
+                Speak("Opening downloads")
+                path=r"C:\\Users\\ayush\\Downloads"
+                os.startfile(path)
+            elif 'open documents' in self.query:
+                Speak("Opening documents")
+                path=r"C:\\Users\\ayush\\Documents"
+                os.startfile(path)
+            elif 'open code blocks' in self.query:
+                Speak("Opening codeeblocks")
+                path=r"C:\\Program Files\\CodeBlocks\\codeblocks.exe"
+                os.startfile(path)
+            elif "camera" in self.query or "take a photo" in self.query:
+                videoCaptureObject = cv2.VideoCapture(0)
+                result = True
+                while(result):
+                    ret,frame = videoCaptureObject.read()
+                    cv2.imwrite("NewPicture.jpg",frame)
+                    result = False
+                videoCaptureObject.release()
+                cv2.destroyAllWindows()
+            elif 'search' in self.query:
+                self.query = self.query.replace("search", "")        
+                wb.open(self.query)
             elif "exit" in self.query :
                 Speak("Thanks boss for your time, Closing me, three, two, one, bye boss.")
                 exit()
