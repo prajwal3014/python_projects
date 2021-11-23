@@ -29,7 +29,7 @@ class jerry_commands(QThread) :
             if "wake up" in self.query or "jerry" == self.query :
                 Speak("yes boss, i am awake, Jerry one point o reporting in your service boss, how are you.")
             elif "how are you" in self.query :
-                Speak("i am fine sir, what about you")
+                Speak("i am fine sir, what about you?")
             elif "fine" in self.query or "good" in self.query or "great" in self.query :
                 Speak("it's good to know that you are fine.")
             elif "help" in self.query or "favour" in self.query :
