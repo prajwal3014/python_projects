@@ -13,7 +13,6 @@ import webbrowser as wb
 import wikipedia
 import datetime
 import os
-from ecapture import ecapture as ec
 import cv2
 
 class jerry_commands(QThread) :
