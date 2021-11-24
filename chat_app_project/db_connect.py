@@ -1,4 +1,3 @@
-from typing import Text
 import psycopg2
 from user import User
 from werkzeug.security import generate_password_hash
@@ -6,6 +5,13 @@ from werkzeug.security import generate_password_hash
 connection = psycopg2.connect(database='postgres', user='postgres', password='admin', host='localhost')
 obj = connection.cursor()
 print("Creating connection")
+
+obj.execute(""" create table if not exists messages (
+                room varchar(255),
+                text varchar(255),
+                sender varchar(255)
+            ); """)
+connection.commit()
 
 def save_user(username, password, email) :
     hash_password = generate_password_hash(password)
@@ -32,11 +38,3 @@ def get_message(room) :
     msg = obj.fetchall()
     print("Get msg Query executed")
     return msg
-
-# obj.execute(""" create table messages (
-#                 room varchar(255),
-#                 text varchar(255),
-#                 sender varchar(255)
-#             ); """)
-# connection.commit()
-# print("Query executed")
