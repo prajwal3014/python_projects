@@ -7,5 +7,13 @@ app.secret_key = "GRIP BANK PROJECT BY PRAJWAL SHARMA"
 def index() :
     return render_template('index.html')
 
+@app.route('/to_customers_list')
+def customers_list() :
+    return render_template('customers_list.html')
+
+@app.route('/to_transaction')
+def transactions() :
+    return render_template('index.html')
+
 if __name__ == "__main__" :
     app.run(debug=True)

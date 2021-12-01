@@ -5,6 +5,30 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+.about-box {
+	font-size: 20px;
+  	border: 2px solid whitesmoke;
+  	padding: 10px;
+  	margin: 15px;
+}
+
+.container .prajwal {
+	padding-top: 30px;
+}
+
+.container .prajwal-img {
+	float: left;
+	padding-right: 15px;
+}
+
+/* .container .prajwal-box {
+	box-shadow: 0 0 50px SpringGreen;
+	border: 2px solid SpringGreen;
+	height: 255px;
+	padding-bottom: 100px;
+	box-sizing: auto;
+} */
+
 #header-nav {
 	background: #f6b319;
 	border-radius: 0;
