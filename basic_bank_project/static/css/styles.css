@@ -25,6 +25,13 @@ body {
 	background-color: whitesmoke;
 }
 
+.details-box {
+	padding: 5px;
+	height: 320px;
+	border: 2px solid whitesmoke;
+	background-color: whitesmoke;
+}
+
 .about-box {
 	font-size: 20px;
   	border: 2px solid whitesmoke;

@@ -17,7 +17,7 @@ def transactions() :
 
 @app.route('/to_prajwal', methods = ['GET', 'POST'])
 def to_prajwal() :
-    return render_template('prajwal.html')
+    return render_template('prajwal.html', name = "Prajwal Sharma", mail = "prajwalsharma@gmail.com", mobile = "8860300923", account = "8860300923@1", type = "Current", balance = "$1000")
 
 @app.route('/to_ayush', methods = ['GET', 'POST'])
 def to_ayush() :

@@ -43,7 +43,7 @@
                 <span class="glyphicon glyphicon-user"></span><br class="hidden-xs"> Customers
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="{{url_for('transactions')}}">
                 <span class="glyphicon glyphicon-usd"></span><br class="hidden-xs"> Transaction
               </a>
@@ -71,6 +71,37 @@
   <!--START OF BODY-->
   <div id="main-content" class="container">
     <h2 id="education" class="text-center">User Details</h2>
+    <div class="details-box">
+      <div style="font-size: 28px; color: #951c49; float: left;">
+        Name : {{ name }}<br>
+        E-mail : {{ mail }}<br>
+        Phone No. : {{ mobile }}<br>
+        Account No. : {{ account }}<br>
+        Account Type : {{ type }}<br>
+        Balance : {{ balance }}<br>
+        <div style="color: whitesmoke; font-size: 18px; padding-top: 20px;">
+          <div style="float: left;">
+            <form action="/back" method="post">
+              <button type="submit" class="b1">SEND MONEY</button>
+            </form>
+          </div>
+          <div style="float: left;">
+            <form action="/back" method="post">
+              <button type="submit" class="b1">HISTORY</button>
+            </form>
+          </div>
+          <div style="float: left;">
+            <form action="/to_customers_list" method="post">
+              <button type="submit" class="b1">BACK</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div style="float: right;">
+        <img src="../static/me.jpg" height="300", width="300">
+      </div>
+    </div>
   </div>
   <!--END OF BODY-->
 
