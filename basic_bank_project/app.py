@@ -13,7 +13,7 @@ def customers_list() :
 
 @app.route('/to_transaction')
 def transactions() :
-    return render_template('index.html')
+    return render_template('transaction.html')
 
 if __name__ == "__main__" :
     app.run(debug=True)

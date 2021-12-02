@@ -5,6 +5,26 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+.b1 {
+	background-color: #951c49;
+	border-radius: 20px;
+	height: 35px;
+	width: 200px;
+}
+
+.b1:hover {
+	background-color: aliceblue;
+	color: #951c49;
+	transition-duration: 0.4s;
+}
+
+.c-box {
+	padding: 5px;
+	height: 50px;
+	border: 2px solid whitesmoke;
+	background-color: whitesmoke;
+}
+
 .about-box {
 	font-size: 20px;
   	border: 2px solid whitesmoke;
@@ -20,14 +40,6 @@ body {
 	float: left;
 	padding-right: 15px;
 }
-
-/* .container .prajwal-box {
-	box-shadow: 0 0 50px SpringGreen;
-	border: 2px solid SpringGreen;
-	height: 255px;
-	padding-bottom: 100px;
-	box-sizing: auto;
-} */
 
 #header-nav {
 	background: #f6b319;
