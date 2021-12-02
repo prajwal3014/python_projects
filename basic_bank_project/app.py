@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 app.secret_key = "GRIP BANK PROJECT BY PRAJWAL SHARMA"
@@ -7,7 +7,7 @@ app.secret_key = "GRIP BANK PROJECT BY PRAJWAL SHARMA"
 def index() :
     return render_template('index.html')
 
-@app.route('/to_customers_list')
+@app.route('/to_customers_list', methods = ['GET', 'POST'])
 def customers_list() :
     return render_template('customers_list.html')
 
@@ -54,6 +54,13 @@ def to_bhagyansh() :
 @app.route('/to_rohit', methods = ['GET', 'POST'])
 def to_rohit() :
     return render_template('rohit.html')
+
+@app.route('/transaction', methods = ['GET', 'POST'])
+def transaction() :
+    sender = request.form.get('sender_acc')
+    reciever = request.form.get('reciever_acc')
+    amount = request.form.get('amount')
+    return render_template('transaction.html')
 
 if __name__ == "__main__" :
     app.run(debug=True)

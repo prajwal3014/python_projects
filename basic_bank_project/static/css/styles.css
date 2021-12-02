@@ -25,6 +25,17 @@ body {
 	background-color: whitesmoke;
 }
 
+.transaction-box {
+	position: relative;
+	left: 150px;
+	text-align: center;
+	width: 75%;
+	padding: 5px;
+	height: 320px;
+	border: 2px solid whitesmoke;
+	background-color: whitesmoke;
+}
+
 .details-box {
 	padding: 5px;
 	height: 320px;
