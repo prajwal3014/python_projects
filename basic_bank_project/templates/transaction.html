@@ -77,13 +77,15 @@
       <form action="/transaction" method="post">
         
         <label style="font-size: 28px; color: #951c49">Sender's Account No. : </label><br>
-        <input size="40px" style="font-size: 20px;" type="text" name="sender_acc" required><br>
+        <input size="40px" style="font-size: 20px; color: black;" type="text" name="sender_acc" value="{{ acc }}" required><br>
         
         <label style="font-size: 28px; color: #951c49">Reciever's Account No. : </label><br>
-        <input size="40px" style="font-size: 20px;" type="text" name="reciever_acc" required><br>
+        <input size="40px" style="font-size: 20px; color: black;" type="text" name="reciever_acc" required><br>
 
         <label style="font-size: 28px; color: #951c49">Amount : </label><br>
-        <input size="40px" style="font-size: 20px;" type="text" name="amount" required><br><br>
+        <input size="40px" style="font-size: 20px; color: black;" type="text" name="amount" required><br><br>
+
+        <p style="color: #951c49; font-size: 18px;">{{ msg }}</p>
 
         <div style="float: left;">
           <button type="submit" class="b1">SEND</button>

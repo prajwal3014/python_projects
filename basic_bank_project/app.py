@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from db import get_balance
+from db import get_balance, check_acc, update_balance
 
 app = Flask(__name__)
 app.secret_key = "GRIP BANK PROJECT BY PRAJWAL SHARMA"
@@ -11,6 +11,11 @@ def index() :
 @app.route('/to_customers_list', methods = ['GET', 'POST'])
 def customers_list() :
     return render_template('customers_list.html')
+
+@app.route('/to_transaction_from_details', methods = ['GET', 'POST'])
+def to_transaction_from() :
+    acc_no = request.form['btn']
+    return render_template('transaction.html', acc = acc_no)
 
 @app.route('/to_transaction')
 def transactions() :
@@ -71,7 +76,22 @@ def transaction() :
     sender = request.form.get('sender_acc')
     reciever = request.form.get('reciever_acc')
     amount = request.form.get('amount')
-    return render_template('transaction.html')
+    
+    acc_list = check_acc()
+
+    if (sender not in acc_list) or (reciever not in acc_list) :
+        return render_template('transaction.html', msg = "Wrong sender's or reciver's account number...!")
+    else :
+        s_balance = get_balance(sender)
+        r_balance = get_balance(reciever)
+        if int(amount) > int(s_balance) :
+            return render_template('transaction.html', msg = "Not enough balance in sender's account...!")
+        else :
+            s_balance = int(s_balance) - int(amount)
+            r_balance = int(r_balance) + int(amount)
+            update_balance(s_balance, sender)
+            update_balance(r_balance, reciever)
+            return render_template('transaction.html', msg = "Money sent successfully...!")
 
 if __name__ == "__main__" :
     app.run(debug=True)

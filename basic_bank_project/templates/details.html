@@ -81,8 +81,8 @@
         Balance : {{ balance }}<br>
         <div style="color: whitesmoke; font-size: 18px; padding-top: 20px;">
           <div style="float: left;">
-            <form action="/transaction" method="post">
-              <button type="submit" class="b1">SEND MONEY</button>
+            <form action="/to_transaction_from_details" method="post">
+              <button type="submit" name="btn" value="{{ account }}" class="b1">SEND MONEY</button>
             </form>
           </div>
           <div style="float: left;">

@@ -40,6 +40,20 @@ def get_balance(acc_no) :
     balance = y.pop()
     return balance
 
+def check_acc() :
+    acc_list = []
+    query = obj.execute(""" select acc_no from bank """)
+    lst = query.fetchall()
+    for i in lst :
+        i = list(i)
+        y = i.pop()
+        acc_list.append(y)
+    return acc_list
+
+def update_balance(balance, acc_no) :
+    obj.execute(""" update bank set balance = '{}' where acc_no = '{}' """.format(balance, acc_no))
+    connection.commit()
+
 # print(get_balance("prajwal@1"))
 # query = obj.execute(""" select * from bank """)
 # lst = query.fetchall()
