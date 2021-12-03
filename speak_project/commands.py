@@ -5,13 +5,11 @@ from PyQt5.QtGui import QMovie
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from PyQt5.uic import loadUiType
-from pyttsx3 import speak
 from jerry_UI import Ui_Jerry
 from Jerry import Listen, Speak
 import webbrowser as wb
 import wikipedia
-import datetime
+from datetime import datetime
 import os
 import cv2
 
@@ -59,21 +57,21 @@ class jerry_commands(QThread) :
                 Speak("Opening stackoverflow")
                 wb.open("www.stackoverflow.com")
             elif 'the time' in self.query:
-                strTime = datetime.datetime.now().strftime("% H:% M:% S")   
+                strTime = datetime.now().strftime("%H:%M:%S")   
                 Speak(f"Sir, the time is {strTime}")
             elif 'play music' in self.query or "play song" in self.query:
                 Speak("Playing music")
-                music_dir = "C:\\Users\\ayush\\Music"
+                music_dir = "C:\\Users\\prajwal\\Music"
                 songs = os.listdir(music_dir)
                 print(songs)   
                 random = os.startfile(os.path.join(music_dir, songs[1]))
             elif 'open downloads' in self.query:
                 Speak("Opening downloads")
-                path=r"C:\\Users\\ayush\\Downloads"
+                path=r"C:\\Users\\prajwal\\Downloads"
                 os.startfile(path)
             elif 'open documents' in self.query:
                 Speak("Opening documents")
-                path=r"C:\\Users\\ayush\\Documents"
+                path=r"C:\\Users\\prajwal\\Documents"
                 os.startfile(path)
             elif 'open code blocks' in self.query:
                 Speak("Opening codeeblocks")
