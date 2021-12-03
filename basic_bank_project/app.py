@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from db import get_balance
 
 app = Flask(__name__)
 app.secret_key = "GRIP BANK PROJECT BY PRAJWAL SHARMA"
@@ -17,43 +18,53 @@ def transactions() :
 
 @app.route('/to_prajwal', methods = ['GET', 'POST'])
 def to_prajwal() :
-    return render_template('prajwal.html', name = "Prajwal Sharma", mail = "prajwalsharma@gmail.com", mobile = "8860300923", account = "8860300923@1", type = "Current", balance = "$1000")
+    money = get_balance("prajwal@1")
+    return render_template('details.html', name = "Prajwal Sharma", mail = "prajwalsharma@gmail.com", mobile = "8860300923", account = "prajwal@1", type = "Current", balance = str(money), img = "../static/me.jpg")
 
 @app.route('/to_ayush', methods = ['GET', 'POST'])
 def to_ayush() :
-    return render_template('ayush.html')
+    money = get_balance("ayush@2")
+    return render_template('details.html', name = "Ayush Rana", mail = "ayushrana@gmail.com", mobile = "9856124589", account = "ayush@2", type = "Current", balance = str(money), img = "../static/02.jpg")
 
 @app.route('/to_harshit', methods = ['GET', 'POST'])
 def to_harshit() :
-    return render_template('harshit.html')
+    money = get_balance("harshit@3")
+    return render_template('details.html', name = "Harshit Srivastava", mail = "harshitsrivastava@gmail.com", mobile = "8561429375", account = "harshit@3", type = "Current", balance = str(money), img = "../static/03.jpg")
 
 @app.route('/to_parv', methods = ['GET', 'POST'])
 def to_parv() :
-    return render_template('parv.html')
+    money = get_balance("parv@4")
+    return render_template('details.html', name = "Parv Arora", mail = "parvarora@gmail.com", mobile = "8943615726", account = "parv@4", type = "Current", balance = str(money), img = "../static/04.jpg")
 
 @app.route('/to_ankit', methods = ['GET', 'POST'])
 def to_ankit() :
-    return render_template('ankit.html')
+    money = get_balance("ankit@5")
+    return render_template('details.html', name = "Ankit Luthra", mail = "ankitluthra@gmail.com", mobile = "9264351879", account = "ankit@5", type = "Current", balance = str(money), img = "../static/05.jpg")
 
 @app.route('/to_aryan', methods = ['GET', 'POST'])
 def to_aryan() :
-    return render_template('aryan.html')
+    money = get_balance("aryan@6")
+    return render_template('details.html', name = "Aryan Anand", mail = "aryananand@gmail.com", mobile = "7651234892", account = "aryan@6", type = "Current", balance = str(money), img = "../static/06.jpg")
 
 @app.route('/to_shubam', methods = ['GET', 'POST'])
 def to_shubam() :
-    return render_template('shubam.html')
+    money = get_balance("shubam@7")
+    return render_template('details.html', name = "Shubam Khandelwal", mail = "shubamkhandelwal@gmail.com", mobile = "9613457826", account = "shubam@7", type = "Current", balance = str(money), img = "../static/07.jpg")
 
 @app.route('/to_arihant', methods = ['GET', 'POST'])
 def to_arihant() :
-    return render_template('arihant.html')
+    money = get_balance("arihant@8")
+    return render_template('details.html', name = "Arihant Jain", mail = "arihantjain@gmail.com", mobile = "8231469257", account = "arihant@8", type = "Current", balance = str(money), img = "../static/08.jpg")
 
 @app.route('/to_bhagyansh', methods = ['GET', 'POST'])
 def to_bhagyansh() :
-    return render_template('bhagyansh.html')
+    money = get_balance("bhagyansh@9")
+    return render_template('details.html', name = "Bhagyansh Kumar", mail = "bhagyanshkumar@gmail.com", mobile = "7516349826", account = "bhagyansh@9", type = "Current", balance = str(money), img = "../static/09.jpg")
 
 @app.route('/to_rohit', methods = ['GET', 'POST'])
 def to_rohit() :
-    return render_template('rohit.html')
+    money = get_balance("rohit@10")
+    return render_template('details.html', name = "Rohit Kumar", mail = "rohitkumar@gmail.com", mobile = "6214537892", account = "rohit@10", type = "Current", balance = str(money), img = "../static/10.jpg")
 
 @app.route('/transaction', methods = ['GET', 'POST'])
 def transaction() :
