@@ -93,5 +93,6 @@ def transaction() :
             update_balance(r_balance, reciever)
             return render_template('transaction.html', msg = "Money sent successfully...!")
 
+#Main Function
 if __name__ == "__main__" :
     app.run(debug=True)
