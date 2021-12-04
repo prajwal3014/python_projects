@@ -65,11 +65,11 @@ class jerry_commands(QThread) :
                 songs = os.listdir(music_dir)
                 print(songs)   
                 random = os.startfile(os.path.join(music_dir, songs[1]))
-            elif 'open downloads' in self.query:
+            elif 'open downloads' in self.query or 'open download' in self.query:
                 Speak("Opening downloads")
                 path=r"C:\\Users\\prajwal\\Downloads"
                 os.startfile(path)
-            elif 'open documents' in self.query:
+            elif 'open documents' in self.query or 'open document' in self.query:
                 Speak("Opening documents")
                 path=r"C:\\Users\\prajwal\\Documents"
                 os.startfile(path)
@@ -78,6 +78,7 @@ class jerry_commands(QThread) :
                 path=r"C:\\Program Files\\CodeBlocks\\codeblocks.exe"
                 os.startfile(path)
             elif "camera" in self.query or "take a photo" in self.query:
+                Speak("Taking Picture in three, two, one.")
                 videoCaptureObject = cv2.VideoCapture(0)
                 result = True
                 while(result):
