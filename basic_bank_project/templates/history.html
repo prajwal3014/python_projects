@@ -33,7 +33,7 @@
         </div>
         <div id="collapsable-nav" class="collapse navbar-collapse">
           <ul id="nav-list" class="nav navbar-nav navbar-right">
-            <li class="active">
+            <li>
               <a href="{{url_for('index')}}">
                 <span class="glyphicon glyphicon-home"></span><br class="hidden-xs"> Home
               </a>
@@ -70,55 +70,11 @@
 
   <!--START OF BODY-->
   <div id="main-content" class="container">
-    <h2 id="education" class="text-center">About GRIP</h2>
-    <div class="about-box">
-      The Graduate Rotational Internship Program is a unique offer for students and recent graduates to experience and join The Sparks 
-      Foundation. In addition to skills-specific tasks, we encourage interns to build a credible professional profile.<br>
-      Benefits of GRIP :<br>
-      1. Verified Completion Certificate<br>
-      2. Opportunity to join TSF<br>
-      3. Networking Opportunity<br>
-      4. Recommendation Letter<br>
-      5. Workshops / guidance<br>
-      6. Special Badges<br>
-    </div>
-    <h2 id="education" class="text-center">About Developer of this site</h2>
-    <div class="about-box">
-      <div style="height: 255px;">
-        <div class="prajwal-img"><img width="215" height="250" src="../static/me.jpg"></div>
-        <div class="prajwal">
-          <h4 id="education"><b>Mr. PRAJWAL SHARMA</b></h4>
-          <h4 id="education">Contact no. : +91-8860300923</h4>
-          <h4 id="education">Pursuing B.E. in Computer Science Engineering.</h4>
-          <h4 id="education">
-            Done courses & certifications on C Language, Information Security, Ethical Hacking, Full Stack Web Development & Java Language.
-          </h4>
-          <h4 id="education">Knows C, C++, JAVA, Python, HTML, CSS, Web Penetration, etc.</h4>
-        </div>
-      </div>
-    </div>
-    <div id="home-tiles" class="row">
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <a href="{{url_for('to_history')}}">
-          <div id="menu-tile">
-            <span>Transaction History</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <a href="{{url_for('customers_list')}}">
-          <div id="specials-tile">
-            <span>Customers</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-12 col-xs-12">
-        <a href="{{url_for('transactions')}}">
-          <div id="map-tile">
-            <span>Transaction</span>
-          </div>
-        </a>
-      </div>
+    <h2 id="education" class="text-center">Transaction History</h2>
+    <div class="history-box">
+      {% for sub_list in h_list %}
+        <p style="color: #951c49; font-size: 25px;">{{ sub_list[0] }} & {{ sub_list[1] }} => <br><b>{{ sub_list[2] }}</b></p>
+      {% endfor %}
     </div>
   </div>
   <!--END OF BODY-->

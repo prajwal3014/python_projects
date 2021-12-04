@@ -43,6 +43,12 @@ body {
 	background-color: whitesmoke;
 }
 
+.history-box {
+	padding: 5px;
+	border: 2px solid whitesmoke;
+	background-color: whitesmoke;
+}
+
 .about-box {
 	font-size: 20px;
   	border: 2px solid whitesmoke;
@@ -203,7 +209,7 @@ b {
 }
 
 #menu-tile {
-	background: url('../TSF.jpg') no-repeat center;
+	background: url('../history.jpg') no-repeat center;
 }
 
 #specials-tile {
