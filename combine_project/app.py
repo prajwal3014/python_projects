@@ -19,5 +19,17 @@ def to_youtube() :
     window_main()
     return redirect(url_for('index'))
 
+@app.route('/Email')
+def to_email() :
+    return redirect(url_for('index'))
+
+@app.route('/register_for_database')
+def to_register() :
+    return render_template('register_for_database.html')
+
+@app.route('/login_for_database')
+def to_login() :
+    return render_template('login_for_database.html')
+
 if __name__ == "__main__" :
     app.run(debug=True)
