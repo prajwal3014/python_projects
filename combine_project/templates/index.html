@@ -51,11 +51,12 @@
         </div>
 
         <!-- START OF LISTING ALL FUNCTIONS -->
-        <form action="/Calculator" class="my-3" method="post">
-            <button class="btn btn-success">
-                Calculator
-            </button>
-        </form>
+        <a href="{{url_for('to_calculator')}}">
+            Calculator
+        </a>
+        <a href="{{url_for('to_youtube')}}">
+            Youtube video downloader
+        </a>
         <!-- END OF LISTING ALL FUNCTIONS -->
 
     </div>
