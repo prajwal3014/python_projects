@@ -15,9 +15,17 @@ def save_user(full_name, uid, all_tables) :
     connection.commit()
 
 def get_users() :
+    user_tables_dict = {}
+    check_user_dict = {}
     query = obj.execute(""" select * from users """)
     lst = query.fetchall()
-    return lst
+    for y in lst :
+        y = list(y)
+        sample_dict = {y[0] : [y[2]]}
+        user_dict = {y[0] : y[1]}
+        check_user_dict.update(user_dict)
+        user_tables_dict.update(sample_dict)
+    return user_tables_dict, check_user_dict
 
 # save_user("Prajwal Sharma", "prajwal@1", "tuition, development")
 # save_user("Ayush Rana", "ayush@2", "other, todo")

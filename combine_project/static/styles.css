@@ -1,9 +1,39 @@
+body {
+    background-color: ghostwhite !important;
+}
+
 .div-box {
     border: 5px solid gray;
     background-color: brown;
     color: bisque;
     padding: 5px;
     font-size: 20px;
+}
+
+.form-box {
+    border: 5px solid gray;
+    background-color: bisque;
+    color: chocolate;
+    padding: 5px;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0px 8px 50px 8px grey;
+}
+
+.btn-submit:hover {
+    background-color: white !important;
+    color: green !important;
+}
+
+.btn-change:hover {
+    background-color: white !important;
+    color: blue !important;
+}
+
+.input-box {
+    width: 50% !important;
 }
 
 #func-1 span,

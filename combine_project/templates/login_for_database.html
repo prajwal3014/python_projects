@@ -38,27 +38,32 @@
     <!-- END OF HEADER -->
 
     <!-- START OF BODY -->
-    <div class="container my-3">
-        <!-- START LOGIN FORM -->
-        <form action="/login" method="post">
-            <div class="mb-3">
-                <label for="firstname" class="form-label"><h2>Full Name : </h2></label>
-                <input type="text" name="firstname" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label"><h2>UNIQUEVERSE ID : </h2></label>
-                <input type="password" name="password" class="form-control">
-                <div class="form-text">Enter the UNIQUEVERSE ID here that we provide you after the creation of account...!</div>
-            </div>
-            <button type="submit" class="btn btn-lg btn-success">Submit</button>
-        </form>
-        <!-- END LOGIN FORM -->
+    <div class="container my-5">
+        <h1 class="text-center" style="color: indianred;">
+            LOGIN FORM
+        </h1>
+        <br>
+        <div class="form-box">
+            <!-- START REGISTER FORM -->
+            <form action="/login" method="post" class="my-3">
+                <div class="mb-3">
+                    <label for="username"><h2>Username : </h2></label><br>
+                    <input type="text" name="username" size="30">
+                </div>
+                <div class="mb-3">
+                    <label for="password"><h2>UNIQUEVERSE ID : </h2></label><br>
+                    <input type="password" name="uid" size="30">
+                    <div class="form-text my-3">Enter the UNIQUEVERSE ID here that we provide you after the creation of account...!</div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success btn-submit my-3">Register</button>
+            </form>
+            <!-- END REGISTER FORM -->
 
-        <form action="/register_for_database" class="text-center my-5">
-            <label><h4>Not a user? Register here : </h4></label> &nbsp; &nbsp;
-            <button class="btn btn-lg btn-primary">Register</button>
-        </form>
-
+            <form action="/register_for_database" class="text-center my-5">
+                <label><h4>Not a user? Register here : </h4></label> &nbsp; &nbsp;
+                <button class="btn btn-lg btn-primary btn-change">Register</button>
+            </form>
+        </div>
     </div>
     <!-- END OF BODY -->
 
