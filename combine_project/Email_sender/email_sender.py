@@ -72,5 +72,3 @@ def main():
     s_7=tk.Button(main_window,text="Exit",font=("ariel",10,BOLD),fg="white",bg="red",width=10,command=to_exit)
     s_7.place(x=200,y=560)
     main_window.mainloop()
-
-main()

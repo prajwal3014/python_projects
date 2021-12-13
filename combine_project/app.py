@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 from Calculator_GUI_project.gui_calculator import calculator
 from Youtube_video_downloader.youtube_downloader import window_main
+from Email_sender.email_sender import main
 
 app = Flask(__name__)
 app.secret_key = 'COMBINING ALL PROJECTS'
@@ -21,6 +22,7 @@ def to_youtube() :
 
 @app.route('/Email')
 def to_email() :
+    main()
     return redirect(url_for('index'))
 
 @app.route('/register_for_database')
