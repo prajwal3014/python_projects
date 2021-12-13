@@ -57,7 +57,7 @@ def login() :
         if uid == uid_2 :
             y = tables_dict[user_name]
             if y == [''] :
-                return render_template('create_view_database.html', name = get_name(uid), uid = uid, msg = "No data found...!")
+                return render_template('create_view_database.html', name = get_name(uid), uid = uid, msg = "No database found...!")
             else :
                 i = y.pop()
                 tables_list = list(map(str, i.split(", ")))
@@ -66,6 +66,14 @@ def login() :
             return render_template('login_for_database.html', msg = "Invalid Username or UNIQUEVERSE ID...!")
     elif user_name not in users_list :
         return render_template('login_for_database.html', msg = "Username does not exists...!")
+
+@app.route('/to_create_database')
+def to_create_database() :
+    return render_template('create_database.html')
+
+@app.route('/back_to_data')
+def back_to_data() :
+    return render_template('create_view_database.html')
 
 if __name__ == "__main__" :
     app.run(debug=True)

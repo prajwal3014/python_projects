@@ -87,6 +87,26 @@ body {
     background: url('database.png') no-repeat center;
 }
 
+.b1 {
+    background-color: gainsboro;
+    border-radius: 20px;
+    height: 35px;
+    width: 200px;
+}
+
+.b1:hover {
+    background-color: #951c49;
+    color: whitesmoke;
+    transition-duration: 0.4s;
+}
+
+.c-box {
+    padding: 5px;
+    height: 50px;
+    border: 2px solid #2516ff;
+    background-color: #2516ff;
+}
+
 .fa {
     padding: 20px;
     font-size: 30px !important;
@@ -113,6 +133,13 @@ body {
 .fa-instagram {
     background: #bc2a8d;
     color: white;
+}
+
+.footer-no {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
 }
 
 .footer {
