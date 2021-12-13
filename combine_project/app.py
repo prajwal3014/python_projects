@@ -56,10 +56,12 @@ def login() :
         uid_2 = check_user_dict[user_name]
         if uid == uid_2 :
             y = tables_dict[user_name]
-            if len(y) > 0 :
+            if y == [''] :
+                return render_template('create_view_database.html', name = get_name(uid), uid = uid, msg = "No data found...!")
+            else :
                 i = y.pop()
                 tables_list = list(map(str, i.split(", ")))
-                return render_template('create_view_database.html', name = get_name(uid), uid = uid, tables = tables_list, msg = "No data found...!")
+                return render_template('create_view_database.html', name = get_name(uid), uid = uid, tables = tables_list)
         elif uid != uid_2 :
             return render_template('login_for_database.html', msg = "Invalid Username or UNIQUEVERSE ID...!")
     elif user_name not in users_list :
