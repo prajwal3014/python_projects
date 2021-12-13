@@ -39,7 +39,7 @@ def registration() :
         id = len(users_list) + 1
         uid = "UV-" + user_name + "@00" + str(id)
         save_user(name, user_name, uid, "")
-        return render_template('create_view_database.html', name = name, uid = uid)
+        return render_template('create_view_database.html', name = name, uid = uid, msg = "No data found...!")
     elif user_name in users_list :
         return render_template('register_for_database.html', msg = "Username already exists...!")
 
@@ -55,7 +55,11 @@ def login() :
     if user_name in users_list :
         uid_2 = check_user_dict[user_name]
         if uid == uid_2 :
-            return render_template('create_view_database.html', name = get_name(uid), uid = uid)
+            y = tables_dict[user_name]
+            if len(y) > 0 :
+                i = y.pop()
+                tables_list = list(map(str, i.split(", ")))
+                return render_template('create_view_database.html', name = get_name(uid), uid = uid, tables = tables_list, msg = "No data found...!")
         elif uid != uid_2 :
             return render_template('login_for_database.html', msg = "Invalid Username or UNIQUEVERSE ID...!")
     elif user_name not in users_list :
