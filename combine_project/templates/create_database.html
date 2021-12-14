@@ -61,8 +61,10 @@
             <!-- END LOGIN FORM -->
             <p>{{ msg }}</p>
 
-            <form action="/back_to_data" class="text-center my-5">
-                <button class="btn btn-lg btn-primary btn-change">Back</button>
+            <form action="/back_to_data" class="text-center my-5" method="post">
+                <button class="btn btn-lg btn-primary btn-change" name="name" value="{{ name }}">Back</button>
+                <button type="submit" name="uid" value="{{ uid }}" hidden></button>
+                <button type="submit" name="tables" value="{{ tables }}" hidden></button>
             </form>
         </div>
 

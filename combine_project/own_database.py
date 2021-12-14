@@ -40,8 +40,8 @@ def get_name(uid) :
 
 # save_user("Prajwal Sharma", "prajju_174", "prajwal@1", "tuition, development")
 # save_user("Ayush Rana", "ayush_12", "ayush@2", "")
-dict_1, dict_2, lst = get_users()
-print(dict_1)
-print(dict_2)
-print(lst)
+# dict_1, dict_2, lst = get_users()
+# print(dict_1)
+# print(dict_2)
+# print(lst)
 # print(get_name("prajwal@1"))
