@@ -38,7 +38,7 @@
     <!-- END OF HEADER -->
 
     <!-- START OF BODY -->
-    <br><br>
+    <br>
     <div class="container my-5">
         <h1 class="text-center" style="color: indianred;">
             Create Your Own Database here...!
@@ -46,17 +46,20 @@
         <br>
         <div class="form-box">
             <!-- START LOGIN FORM -->
-            <form action="/add_table" method="post" class="my-3">
+            <form action="/add_table_to_db" method="post" class="my-3">
+                {% for i in range(no_cols) %}
                 <div class="mb-3">
-                    <label for="db_name"><h2>Database Name : </h2></label>
-                    <input type="text" name="db_name" size="25">
+                    <label for="cols_name"><h2>Column {{ i+1 }} Name : </h2></label>
+                    <input type="text" name="{{ i }}" size="25">
                 </div>
-                <div class="mb-3">
+                {% endfor %}
+                <!-- <div class="mb-3">
                     <label for="no_cols"><h2>No. of Columns (Between 1 to 5) : </h2></label>
                     <input type="number" name="no_cols" min="1" max="5">
                     <div class="form-text my-3">Here you have to enter the number of columns you want in your database...!</div>
-                </div>
-                <button type="submit" class="btn btn-lg btn-success btn-submit my-3">Proceed</button>
+                </div> -->
+                <input name="no_cols" value="{{ no_cols }}" hidden>
+                <button type="submit" class="btn btn-lg btn-success btn-submit my-3" name="table_name" value="{{ table_name }}">Proceed</button>
             </form>
             <!-- END LOGIN FORM -->
             <p>{{ msg }}</p>

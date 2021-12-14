@@ -69,18 +69,24 @@ def login() :
 
 @app.route('/to_create_database', methods = ['GET', 'POST'])
 def to_create_database() :
-    lst = request.form.get('lst')
-    # uid = request.form.get('uid')
-    # tables_list = request.form.get('tables')
-    print(lst)
     return render_template('create_database.html')
-# , name = name, uid = uid, tables = tables_list
-@app.route('/back_to_data', methods = ['GET', 'POST'])
-def back_to_data() :
-    name = request.form.get('name')
-    uid = request.form.get('uid')
-    tables_list = request.form.get('tables')
-    return render_template('create_view_database.html', name = name, uid = uid, tables = tables_list)
+
+@app.route('/add_table', methods = ['GET', 'POST'])
+def add_table() :
+    table_name = request.form.get('db_name')
+    no_cols = request.form.get('no_cols')
+    return render_template('add_table.html', table_name = table_name, no_cols = int(no_cols))
+
+@app.route('/add_table_to_db', methods = ['GET', 'POST'])
+def add_table_to_db() :
+    lst = []
+    no_cols = request.form.get('no_cols')
+    table_name = request.form.get('table_name')
+    for i in range(int(no_cols)) :
+        lst.append(request.form.get(str(i)))
+    print(table_name)
+    print(lst)
+    return render_template('add_table.html', no_cols = int(no_cols))
 
 if __name__ == "__main__" :
     app.run(debug=True)

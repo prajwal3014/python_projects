@@ -1,4 +1,5 @@
-d = ["table1, table2"]
-i = d.pop()
-y = list(map(str, i.split(", ")))
-print(y)
+# import json
+lst = "[Prajwal Sharma, prajwal@1, tuition, development]"
+res = lst.strip('][').split(', ')
+print(res)
+print(type(res))
