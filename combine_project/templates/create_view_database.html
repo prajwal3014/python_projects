@@ -67,9 +67,9 @@
         <br>
 
         <form action="/to_create_database" class="text-center" method="post">
-            <button type="submit" name="name" value="{{ name }}" class="btn btn-lg btn-success btn-submit">Create New Database</button>
-            <input type="submit" name="uid" value="{{ uid }}" style="border: hidden; background-color: ghostwhite;">
-            <input type="submit" name="tables" value="{{ tables }}" style="border: hidden; background-color: ghostwhite;">
+            <button type="submit" name="name" value="{{ lst = [name, uid, tables] }}" class="btn btn-lg btn-success btn-submit">Create New Database</button>
+            <!-- <input type="submit" name="uid" value="{{ uid }}" style="border: hidden; background-color: ghostwhite;">
+            <input type="submit" name="tables" value="{{ tables }}" style="border: hidden; background-color: ghostwhite;"> -->
         </form>
     </div>
     <!-- END OF BODY -->

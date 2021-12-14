@@ -1,4 +1,3 @@
-from os import name
 from flask import Flask, request, render_template, redirect, url_for
 from Calculator_GUI_project.gui_calculator import calculator
 from Youtube_video_downloader.youtube_downloader import window_main
@@ -70,12 +69,12 @@ def login() :
 
 @app.route('/to_create_database', methods = ['GET', 'POST'])
 def to_create_database() :
-    name = request.form.get('name')
-    uid = request.form.get('uid')
-    tables_list = request.form.get('tables')
-    print(name, uid, tables_list)
-    return render_template('create_database.html', name = name, uid = uid, tables = tables_list)
-
+    lst = request.form.get('lst')
+    # uid = request.form.get('uid')
+    # tables_list = request.form.get('tables')
+    print(lst)
+    return render_template('create_database.html')
+# , name = name, uid = uid, tables = tables_list
 @app.route('/back_to_data', methods = ['GET', 'POST'])
 def back_to_data() :
     name = request.form.get('name')

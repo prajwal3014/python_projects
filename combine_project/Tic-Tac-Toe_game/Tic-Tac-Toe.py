@@ -2,10 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter.constants import FALSE
 from tkinter.font import BOLD
-count=0
-board=[['','','',],
-           ['','','',],
-           ['','','',]]
 
 def Quit():
     global main_window    
@@ -32,7 +28,7 @@ def displayWinner(winner):
     winnerWindow.configure(bg="Red")
     l0=tk.Label(winnerWindow,text="",bg="Red")
     l0.pack()
-    l1=tk.Label(winnerWindow,text="THE WINNER IS: ",font=("Ariel",20,BOLD),bg="Red",fg="White")
+    l1=tk.Label(winnerWindow,text="THE WINNER IS: ",font=("Ariel",30,BOLD),bg="Red",fg="White")
     l1.pack()
     l0=tk.Label(winnerWindow,text="",bg="Red")
     l0.pack()
@@ -88,15 +84,15 @@ def TicTacToeGUI(playerX,playerO):
     exitButton=tk.Button(main_window,text="Quit",command=Quit,font=("Ariel",10,BOLD),bg="green",fg="White",width=10)
     exitButton.grid(row=0,column=2)
 
-    b1=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b1,0,0))
-    b2=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b2,0,1))
-    b3=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b3,0,2))
-    b4=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b4,1,0))
-    b5=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b5,1,1))
-    b6=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b6,1,2))
-    b7=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b7,2,0))
-    b8=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b8,2,1))
-    b9=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 20 bold",command=lambda: changeVal(b9,2,2))
+    b1=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b1,0,0))
+    b2=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b2,0,1))
+    b3=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b3,0,2))
+    b4=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b4,1,0))
+    b5=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b5,1,1))
+    b6=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b6,1,2))
+    b7=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b7,2,0))
+    b8=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b8,2,1))
+    b9=tk.Button(main_window,text="",height=4,width=8,bg="White",activebackground="Red",fg="Red",font="Ariel 30 bold",command=lambda: changeVal(b9,2,2))
     b1.grid(row=2,column=0)
     b2.grid(row=2,column=1)
     b3.grid(row=2,column=2)
@@ -109,6 +105,11 @@ def TicTacToeGUI(playerX,playerO):
     main_window.mainloop()
 
 def pregame():
+    global count,board
+    count=0
+    board=[['','','',],
+           ['','','',],
+           ['','','',]]
     pre_window=tk.Tk()
     pre_window.title("TIC TAC TOE")
     pre_window.geometry("500x300")
