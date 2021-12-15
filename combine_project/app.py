@@ -78,9 +78,10 @@ def to_create_database() :
 def add_table() :
     table_name = request.form.get('db_name')
     no_cols = request.form.get('no_cols')
+    no_rows = request.form.get('no_rows')
     suffix_table = request.form.get('suffix_table')
     table_name = table_name + suffix_table
-    return render_template('add_table.html', table_name = table_name, no_cols = int(no_cols))
+    return render_template('add_table.html', table_name = table_name, no_cols = int(no_cols), no_rows = int(no_rows))
 
 @app.route('/add_table_to_db', methods = ['GET', 'POST'])
 def add_table_to_db() :
