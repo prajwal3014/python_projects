@@ -69,23 +69,28 @@ def login() :
 
 @app.route('/to_create_database', methods = ['GET', 'POST'])
 def to_create_database() :
-    return render_template('create_database.html')
+    name = request.form.get('name')
+    uid = request.form.get('uid')
+    suffix_table = "_" + name + "@" + uid[-1]
+    return render_template('create_database.html', suffix_table = suffix_table)
 
 @app.route('/add_table', methods = ['GET', 'POST'])
 def add_table() :
     table_name = request.form.get('db_name')
     no_cols = request.form.get('no_cols')
+    suffix_table = request.form.get('suffix_table')
+    table_name = table_name + suffix_table
     return render_template('add_table.html', table_name = table_name, no_cols = int(no_cols))
 
 @app.route('/add_table_to_db', methods = ['GET', 'POST'])
 def add_table_to_db() :
-    lst = []
+    cols_lst = []
     no_cols = request.form.get('no_cols')
     table_name = request.form.get('table_name')
     for i in range(int(no_cols)) :
-        lst.append(request.form.get(str(i)))
+        cols_lst.append(request.form.get(str(i)))
     print(table_name)
-    print(lst)
+    print(cols_lst)
     return render_template('add_table.html', no_cols = int(no_cols))
 
 if __name__ == "__main__" :

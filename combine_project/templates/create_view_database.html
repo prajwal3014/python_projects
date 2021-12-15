@@ -66,8 +66,9 @@
 
         <br>
 
-        <form action="/to_create_database" class="text-center">
-            <button type="submit" class="btn btn-lg btn-success btn-submit">Create New Database</button>
+        <form action="/to_create_database" class="text-center" method="post">
+            <input name="name" value="{{ name }}" hidden>
+            <button type="submit" class="btn btn-lg btn-success btn-submit" name="uid" value="{{ uid }}">Create New Database</button>
         </form>
         <form action="/login_for_database" class="text-center my-5">
             <button type="submit" class="btn btn-lg btn-primary btn-change">Logout</button>
