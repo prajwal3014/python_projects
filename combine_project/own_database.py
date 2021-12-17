@@ -49,6 +49,17 @@ def add_cols(table_name, cols_list) :
         obj.execute(""" alter table {} add {} varchar(255) """.format(table_name, cols_name))
         connection.commit()
 
+def add_row(table_name) :
+    obj.execute
+
+def get_table(table_name) :
+    query = obj.execute(""" select * from {} """.format(table_name))
+    lst = query.fetchall()
+    if lst :
+        return lst
+    else :
+        return "Empty list"    
+
 # save_user("Prajwal Sharma", "prajju_174", "prajwal@1", "tuition, development")
 # save_user("Ayush Rana", "ayush_12", "ayush@2", "")
 # dict_1, dict_2, lst = get_users()
@@ -56,3 +67,7 @@ def add_cols(table_name, cols_list) :
 # print(dict_2)
 # print(lst)
 # print(get_name("prajwal@1"))
+# save_table("todos")
+# lst = ['python', 'flask', 'react']
+# add_cols("todos", lst)
+print(get_table("todos"))
