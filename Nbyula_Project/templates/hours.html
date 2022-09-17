@@ -1,0 +1,29 @@
+{% extends 'index.html' %} {% block title %} Book Appointments {% endblock %} {% block body %}
+<div class="form-box my-5" style="height: 350px;">
+    <h1 class="text-white text-center">Available Hours</h1><br>
+    <form action=" " method="post">
+        <div class="form-floating mb-3">
+            <input type="time" class="form-control" id="floatingInput" placeholder="time" required>
+            <label for="floatingInput">Start Hour</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="time" class="form-control" id="floatingInput" placeholder="time" required>
+            <label for="floatingInput">End Hour</label>
+        </div>
+
+        <br>
+
+        <div class="ms-5 me-5" style="float: left;">
+            <button type="submit" class="btn btn-success btn-lg btn-1">Submit</button>
+        </div>
+
+        <div class="ms-5 me-5" style="float: right;">
+            <button type="reset" class="btn btn-danger btn-lg btn-2">Reset</button>
+        </div>
+
+        <div style="color: red; font-size: 18px; text-align: center; padding-top: 10px;">
+            {{msg}}
+        </div>
+    </form>
+</div>
+{% endblock %}

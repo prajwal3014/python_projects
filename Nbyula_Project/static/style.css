@@ -50,6 +50,16 @@
     color: red;
 }
 
+.form-box-login button.btn-1:hover {
+    background-color: whitesmoke;
+    color: green;
+}
+
+.form-box-login button.btn-2:hover {
+    background-color: whitesmoke;
+    color: red;
+}
+
 .form-btn input.btn-3:hover {
     background-color: whitesmoke;
     color: blue;
