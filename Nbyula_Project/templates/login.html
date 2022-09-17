@@ -2,13 +2,13 @@
 <h1 class="text-white text-center" style="font-size: 40px; padding-top: 40px; padding-bottom: 50px;">NBYULA MEETING SCHEDULER</h1>
 <div class="form-box-login">
     <h1 class="text-white text-center">Employee Sign-in</h1><br>
-    <form action=" " method="post">
+    <form action="/home" method="post">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="empid" required>
+            <input name="emp_id" value="{{emp_id}}" type="text" class="form-control" id="floatingInput" placeholder="empid" required>
             <label for="floatingInput">Employee Id</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <input name="password" value="{{password}}" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
             <label for="floatingPassword">Password</label>
         </div>
 
@@ -22,7 +22,7 @@
             <button type="reset" class="btn btn-danger btn-lg btn-2">Reset</button>
         </div>
 
-        <div style="color: red; font-size: 18px; text-align: center; padding-top: 10px;">
+        <div style="color: whitesmoke; font-size: 20px; text-align: center; padding-top: 10px;">
             {{msg}}
         </div>
     </form>

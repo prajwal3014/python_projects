@@ -78,12 +78,13 @@ def check_empid(emp_id) :
     else :
         return False
 
-def register(name, emp_id, email, password) :
+def register_user(name, emp_id, email, password) :
     hash_password = generate_password_hash(password)
     obj.execute(""" insert into terraformers values('{}', '{}', '{}', '{}') """.format(name, emp_id, email, hash_password))
+    connection.commit()
 
-def login(emp_id, password) :
-    query = obj.execute(""" select password from bank where emp_id = '{}' """.format(emp_id))
+def login_user(emp_id, password) :
+    query = obj.execute(""" select password from terraformers where emp_id = '{}' """.format(emp_id))
     lst = query.fetchall()
     y = lst.pop()
     y = list(y)
@@ -93,56 +94,48 @@ def login(emp_id, password) :
     else :
         return False
 
-def get_balance(acc_no) :
-    query = obj.execute(""" select balance from bank where acc_no = '{}' """.format(acc_no))
-    lst = query.fetchall()
-    y = lst.pop()
-    y = list(y)
-    balance = y.pop()
-    return balance
-
-def get_name(acc_no) :
-    query = obj.execute(""" select name from bank where acc_no = '{}' """.format(acc_no))
+def get_name(emp_id) :
+    query = obj.execute(""" select name from terraformers where emp_id = '{}' """.format(emp_id))
     lst = query.fetchall()
     y = lst.pop()
     y = list(y)
     name = y.pop()
     return name
 
-def get_history() :
-    history_list = []
-    sub_list = []
-    query = obj.execute(""" select * from history """)
-    lst = query.fetchall()
-    for i in lst :
-        i = list(i)
-        sub_list.append("Date : " + i[0])
-        sub_list.append("Time : " + i[1])
-        sub_list.append(i[2])
-        history_list.append(sub_list)
-        sub_list = []
-    return history_list
+# def get_history() :
+#     history_list = []
+#     sub_list = []
+#     query = obj.execute(""" select * from history """)
+#     lst = query.fetchall()
+#     for i in lst :
+#         i = list(i)
+#         sub_list.append("Date : " + i[0])
+#         sub_list.append("Time : " + i[1])
+#         sub_list.append(i[2])
+#         history_list.append(sub_list)
+#         sub_list = []
+#     return history_list
 
-def check_acc() :
-    acc_list = []
-    query = obj.execute(""" select acc_no from bank """)
-    lst = query.fetchall()
-    for i in lst :
-        i = list(i)
-        y = i.pop()
-        acc_list.append(y)
-    return acc_list
+# def check_acc() :
+#     acc_list = []
+#     query = obj.execute(""" select acc_no from bank """)
+#     lst = query.fetchall()
+#     for i in lst :
+#         i = list(i)
+#         y = i.pop()
+#         acc_list.append(y)
+#     return acc_list
 
-def update_balance(balance, acc_no) :
-    obj.execute(""" update bank set balance = '{}' where acc_no = '{}' """.format(balance, acc_no))
-    connection.commit()
+# def update_balance(balance, acc_no) :
+#     obj.execute(""" update bank set balance = '{}' where acc_no = '{}' """.format(balance, acc_no))
+#     connection.commit()
 
-def update_history(s_name, r_name, amount) :
-    now = datetime.now()
-    date = now.strftime("%d/%m/%Y")
-    time = now.strftime("%H:%M:%S")
-    obj.execute(""" insert into history values('{}', '{}', '{} sent ₹{} to {}') """.format(date, time,s_name, amount, r_name))
-    connection.commit()
+# def update_history(s_name, r_name, amount) :
+#     now = datetime.now()
+#     date = now.strftime("%d/%m/%Y")
+#     time = now.strftime("%H:%M:%S")
+#     obj.execute(""" insert into history values('{}', '{}', '{} sent ₹{} to {}') """.format(date, time,s_name, amount, r_name))
+#     connection.commit()
 
 # print(get_balance("prajwal@1"))
 # query = obj.execute(""" select * from bank """)
