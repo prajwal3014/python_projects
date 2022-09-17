@@ -1,0 +1,29 @@
+{% extends 'index.html' %} {% block title %} Home {% endblock %} {% block home %} active {% endblock %} {% block body %}
+<div class="user-box bg-light my-4">
+    <h3>Welcome {{name}} Prajwal Sharma</h3>
+    <hr style="height: 1px; border: 2px solid black;">
+    <h5>Below mentioned are the available hours of all the Terraformers</h5>
+</div>
+
+<div class="card border-success home-box bg-light my-4">
+    <h4 class="card-header bg-transparent border-success">Ayush Rana</h4>
+    <div class="card-body" style="padding-bottom: 0px;">
+        <p><b><u>Position</u> : </b>Sr. Software Engineer</p>
+        <p><b><u>Available Hours</u> : </b>5:00 PM to 8:00 PM</p>
+    </div>
+    <div class="card-footer bg-transparent border-success" style="padding-top: 25px;">
+        <a href="" class="btn btn-success btn-lg btn-1">Book Appointment</a>
+    </div>
+</div>
+
+<div class="card border-success home-box bg-light">
+    <h4 class="card-header bg-transparent border-success">Parv Arora</h4>
+    <div class="card-body" style="padding-bottom: 0px;">
+        <p><b><u>Position</u> : </b>Sr. Data Scientist</p>
+        <p><b><u>Available Hours</u> : </b>6:00 PM to 9:00 PM</p>
+    </div>
+    <div class="card-footer bg-transparent border-success" style="padding-top: 25px;">
+        <a href="" class="btn btn-success btn-lg btn-1">Book Appointment</a>
+    </div>
+</div>
+<br> {% endblock %}

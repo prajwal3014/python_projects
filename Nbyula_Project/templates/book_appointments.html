@@ -1,0 +1,39 @@
+{% extends 'index.html' %} {% block title %} Book Appointments {% endblock %} {% block body %}
+<div class="form-box my-5">
+    <h1 class="text-white text-center">Book Appointment</h1><br>
+    <form action=" " method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" value="Ayush Rana" id="floatingInput" placeholder="name" disabled>
+            <label for="floatingInput">Guest Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Title" required>
+            <label for="floatingInput">Title</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Agenda" required>
+            <label for="floatingInput">Agenda</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="time" class="form-control" id="floatingInput" placeholder="time" min="17:00:00" max="19:00:00" required>
+            <label for="floatingInput">Start Hour</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="time" class="form-control" id="floatingInput" placeholder="time" min="18:00:00" max="20:00:00" required>
+            <label for="floatingInput">End Hour</label>
+        </div>
+
+        <div class="ms-5 me-5" style="float: left;">
+            <button type="submit" class="btn btn-success btn-lg btn-1">Book Now</button>
+        </div>
+
+        <div class="ms-5 me-5" style="float: right;">
+            <button type="reset" class="btn btn-danger btn-lg btn-2">Cancel</button>
+        </div>
+
+        <div style="color: red; font-size: 18px; text-align: center; padding-top: 10px;">
+            {{msg}}
+        </div>
+    </form>
+</div>
+{% endblock %}

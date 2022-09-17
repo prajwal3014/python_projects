@@ -4,6 +4,15 @@
     background: linear-gradient(to right, #0575E6, #00F260);
 }
 
+.bg-home {
+    background: #7F00FF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E100FF, #7F00FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .form-box {
     padding: 20px;
     border-radius: 25px;
@@ -44,4 +53,28 @@
 .form-btn input.btn-3:hover {
     background-color: whitesmoke;
     color: blue;
+}
+
+.nav-btn:hover {
+    background-color: white;
+    color: black !important;
+}
+
+.user-box {
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.home-box {
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 25px !important;
+}
+
+.card a.btn-1:hover {
+    background-color: whitesmoke;
+    color: green;
 }

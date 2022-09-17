@@ -1,27 +1,27 @@
-{% extends 'base.html' %} {% block title %} Sign-up {% endblock %} {% block bg %} bg-login {% endblock %} {% block body %}
+{% extends 'base.html' %} {% block title %} Sign-up {% endblock %} {% block body %}
 <h1 class="text-white text-center" style="font-size: 40px; padding-top: 30px; padding-bottom: 30px;">NBYULA MEETING SCHEDULER</h1>
 <div class="form-box">
     <h1 class="text-white text-center">Employee Sign-up</h1><br>
-    <form action=" " method="post ">
-        <div class="form-floating mb-3 ">
-            <input type="text " class="form-control " id="floatingInput " placeholder="name ">
-            <label for="floatingInput ">Full Name</label>
+    <form action=" " method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name" required>
+            <label for="floatingInput">Full Name</label>
         </div>
-        <div class="form-floating mb-3 ">
-            <input type="text " class="form-control " id="floatingInput " placeholder="empid ">
-            <label for="floatingInput ">Employee Id</label>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="empid" required>
+            <label for="floatingInput">Employee Id</label>
         </div>
-        <div class="form-floating mb-3 ">
-            <input type="email " class="form-control " id="floatingInput " placeholder="name@example.com ">
-            <label for="floatingInput ">Email address</label>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <label for="floatingInput">Email address</label>
         </div>
-        <div class="form-floating mb-3 ">
-            <input type="password " class="form-control " id="floatingPassword " placeholder="Password ">
-            <label for="floatingPassword ">Create Password</label>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <label for="floatingPassword">Create Password</label>
         </div>
-        <div class="form-floating ">
-            <input type="password " class="form-control " id="floatingPassword " placeholder="Password ">
-            <label for="floatingPassword ">Confirm Password</label>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <label for="floatingPassword">Confirm Password</label>
         </div>
 
         <br>
