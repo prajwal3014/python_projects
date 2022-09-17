@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %} Sign-in {% endblock %} {% block bg %} bg-login {% endblock %} {% block body %}
+<h1 class="text-white text-center" style="font-size: 40px; padding-top: 40px; padding-bottom: 50px;">NBYULA MEETING SCHEDULER</h1>
+<div class="form-box-login">
+    <h1 class="text-white text-center">Employee Sign-in</h1><br>
+    <form action=" " method="post ">
+        <div class="form-floating mb-3 ">
+            <input type="text " class="form-control " id="floatingInput " placeholder="empid ">
+            <label for="floatingInput ">Employee Id</label>
+        </div>
+        <div class="form-floating ">
+            <input type="password " class="form-control " id="floatingPassword " placeholder="Password ">
+            <label for="floatingPassword ">Password</label>
+        </div>
+
+        <br>
+
+        <div class="ms-5 me-5" style="float: left;">
+            <button type="submit" class="btn btn-success btn-lg btn-1">Submit</button>
+        </div>
+
+        <div class="ms-5 me-5" style="float: right;">
+            <button type="reset" class="btn btn-danger btn-lg btn-2">Reset</button>
+        </div>
+
+        <div style="color: red; font-size: 18px; text-align: center; padding-top: 10px;">
+            {{msg}}
+        </div>
+    </form>
+
+    <form action="/sign-up" style="text-align: center; padding-top: 100px;" class="form-btn">
+        <label style="color: whitesmoke; font-size: 30px;">Not a user? Sign-up here : &nbsp;</label>
+        <input type="submit" value="Sign-up" class="btn btn-primary btn-lg btn-3">
+    </form>
+
+</div>
+{% endblock %}

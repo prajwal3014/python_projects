@@ -1,0 +1,47 @@
+.bg-login {
+    background: #00F260;
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+    background: linear-gradient(to right, #0575E6, #00F260);
+}
+
+.form-box {
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 50%;
+    height: 550px;
+    margin: auto;
+}
+
+.form-box-login {
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 50%;
+    height: 340px;
+    margin: auto;
+}
+
+.head-color {
+    color: #7303c0;
+    /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+    /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form-box button.btn-1:hover {
+    background-color: whitesmoke;
+    color: green;
+}
+
+.form-box button.btn-2:hover {
+    background-color: whitesmoke;
+    color: red;
+}
+
+.form-btn input.btn-3:hover {
+    background-color: whitesmoke;
+    color: blue;
+}

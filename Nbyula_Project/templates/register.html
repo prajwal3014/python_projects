@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block title %} Sign-up {% endblock %} {% block bg %} bg-login {% endblock %} {% block body %}
+<h1 class="text-white text-center" style="font-size: 40px; padding-top: 30px; padding-bottom: 30px;">NBYULA MEETING SCHEDULER</h1>
+<div class="form-box">
+    <h1 class="text-white text-center">Employee Sign-up</h1><br>
+    <form action=" " method="post ">
+        <div class="form-floating mb-3 ">
+            <input type="text " class="form-control " id="floatingInput " placeholder="name ">
+            <label for="floatingInput ">Full Name</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="text " class="form-control " id="floatingInput " placeholder="empid ">
+            <label for="floatingInput ">Employee Id</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="email " class="form-control " id="floatingInput " placeholder="name@example.com ">
+            <label for="floatingInput ">Email address</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="password " class="form-control " id="floatingPassword " placeholder="Password ">
+            <label for="floatingPassword ">Create Password</label>
+        </div>
+        <div class="form-floating ">
+            <input type="password " class="form-control " id="floatingPassword " placeholder="Password ">
+            <label for="floatingPassword ">Confirm Password</label>
+        </div>
+
+        <br>
+
+        <div class="ms-5 me-5" style="float: left;">
+            <button type="submit" class="btn btn-success btn-lg btn-1">Submit</button>
+        </div>
+
+        <div class="ms-5 me-5" style="float: right;">
+            <button type="reset" class="btn btn-danger btn-lg btn-2">Reset</button>
+        </div>
+
+        <div style="color: red; font-size: 18px; text-align: center; padding-top: 10px;">
+            {{msg}}
+        </div>
+    </form>
+
+    <form action="/" style="text-align: center; padding-top: 80px;" class="form-btn">
+        <label style="color: whitesmoke; font-size: 30px;">Already a user? Sign-in here : &nbsp;</label>
+        <input type="submit" value="Sign-in" class="btn btn-primary btn-lg btn-3">
+    </form>
+
+</div>
+{% endblock %}
