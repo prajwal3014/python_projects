@@ -82,6 +82,17 @@ def register(name, emp_id, email, password) :
     hash_password = generate_password_hash(password)
     obj.execute(""" insert into terraformers values('{}', '{}', '{}', '{}') """.format(name, emp_id, email, hash_password))
 
+def login(emp_id, password) :
+    query = obj.execute(""" select password from bank where emp_id = '{}' """.format(emp_id))
+    lst = query.fetchall()
+    y = lst.pop()
+    y = list(y)
+    hash_password = y.pop()
+    if check_password_hash(hash_password, password) :
+        return True
+    else :
+        return False
+
 def get_balance(acc_no) :
     query = obj.execute(""" select balance from bank where acc_no = '{}' """.format(acc_no))
     lst = query.fetchall()
