@@ -43,8 +43,13 @@ def home() :
     else :
         return render_template('login.html', emp_id = emp_id, password = password, msg = "Employee Doesnot Exists!!!")
 
-@app.route('/book')
+@app.route('/booked/home', methods = ['POST', 'GET'])
 def book() :
+    guest_name = request.form.get('guest_name')
+    title = request.form.get('title')
+    agenda = request.form.get('agenda')
+    start_time = request.form.get('start_time')
+    end_time = request.form.get('end_time')
     return render_template('book_appointments.html')
 
 @app.route('/change_password')

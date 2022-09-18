@@ -102,6 +102,10 @@ def get_name(emp_id) :
     name = y.pop()
     return name
 
+def book_app(name, guest_name, title, agenda, start_time, end_time) :
+    obj.execute(""" insert into appointments values('{}', '{}', '{}', '{}', '{}', '{}') """.format(name, guest_name, title, agenda, start_time, end_time))
+    connection.commit()
+
 # def get_history() :
 #     history_list = []
 #     sub_list = []
